@@ -25,9 +25,6 @@ class FoodDetailsFragment : BaseSupportFragment(R.layout.fragment_food_details) 
 
     private val args by navArgs<FoodDetailsFragmentArgs>()
 
-    private var foods: Foods? = Foods()
-    private var categoryModel: CategoryModel? = CategoryModel()
-
     private lateinit var sizeAdapter: SizeAdapter
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -43,14 +40,12 @@ class FoodDetailsFragment : BaseSupportFragment(R.layout.fragment_food_details) 
     }
 
     private fun initViews() {
-        foods = args.itemFood
-        categoryModel =args.category
 
-        requireContext().loadWithGlide(details_img_food, foods?.image)
+        requireContext().loadWithGlide(details_img_food, args.itemFood?.image)
 
-        tv_details_food_name.text = foods?.name
-        tv_price.text = foods?.price?.toString()?: ""
-        food_description.text = foods?.description
+        tv_details_food_name.text = args.itemFood?.name
+        tv_price.text = args.itemFood?.price?.toString()?: ""
+        food_description.text = args.itemFood?.description
 
 
     }
@@ -76,7 +71,7 @@ class FoodDetailsFragment : BaseSupportFragment(R.layout.fragment_food_details) 
         carousel_size.apply {
             this.adapter = sizeAdapter
         }
-        sizeAdapter.differ.submitList(foods?.size)
+        sizeAdapter.differ.submitList(args.itemFood?.size)
     }
 
     private fun addOne() {
@@ -101,7 +96,7 @@ class FoodDetailsFragment : BaseSupportFragment(R.layout.fragment_food_details) 
         sizes: List<SizeModel>,
         addons: List<AddonModel>
     ) {
-        var foodPrice = foods?.price
+        var foodPrice = args.itemFood?.price
         addons.forEach { addonModel ->
             if (addonModel.taken == true) {
                 addonModel.price?.let { foodPrice = foodPrice?.plus(it) }
@@ -130,7 +125,7 @@ class FoodDetailsFragment : BaseSupportFragment(R.layout.fragment_food_details) 
                    else -> {
                        navController.navigate(
                            FoodDetailsFragmentDirections.actionFoodDetailsFragmentToFoodListFragment(
-                               categoryModel
+                               args.category
                            )
                        )
                    }
@@ -157,8 +152,8 @@ class FoodDetailsFragment : BaseSupportFragment(R.layout.fragment_food_details) 
             view.postDelayed({
                 navController.navigate(
                     FoodDetailsFragmentDirections.actionNavRatingDialogBottomSheetFragment(
-                        category = categoryModel,
-                        itemFood = foods
+                        category = args.category,
+                        itemFood = args.itemFood
                     )
                 )
             }, 1000)
@@ -170,8 +165,8 @@ class FoodDetailsFragment : BaseSupportFragment(R.layout.fragment_food_details) 
                 this.playAnimation()
                 navController.navigate(
                     FoodDetailsFragmentDirections.actionNavAddonDialogBottomSheetFragment(
-                        category = categoryModel,
-                        itemFood = foods
+                        category = args.category,
+                        itemFood = args.itemFood
                     )
                 )
                 this.speed = -1f
@@ -185,7 +180,7 @@ class FoodDetailsFragment : BaseSupportFragment(R.layout.fragment_food_details) 
                 playAnimation()
                 speed = -2f
                 playAnimation()
-                handleAddFoodToCart(foods = foods)
+                handleAddFoodToCart(foods = args.itemFood)
             }
         }
 
