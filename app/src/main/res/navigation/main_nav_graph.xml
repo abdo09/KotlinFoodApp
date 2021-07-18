@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/nav_splash_fragment">
+
+    <fragment
+        android:id="@+id/nav_splash_fragment"
+        android:name="net.ferraSolution.food.ui.onBoarding.SplashFragment"
+        android:label="splash_fragment"
+        tools:layout="@layout/fragment_splash">
+
+        <action
+            android:id="@+id/action_splash_fragment_to_loginFragment"
+            app:destination="@id/nav_signInFragment"
+            app:exitAnim="@anim/fragment_fade_exit" />
+        <action
+            android:id="@+id/action_splashFragment_to_homeFragment"
+            app:destination="@id/nav_homeFragment"
+            app:exitAnim="@anim/nav_default_pop_exit_anim" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/nav_signInFragment"
+        android:name="net.ferraSolution.food.ui.user.login.SignInFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_sign_in">
+        <action
+            android:id="@+id/action_loginFragment_to_signUpFragment"
+            app:destination="@id/nav_signUpFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/nav_homeFragment"
+            app:enterAnim="@anim/slide_out_left"
+            app:exitAnim="@anim/slide_in_right" />
+        <action
+            android:id="@+id/action_loginFragment_to_verificationOtpFragment"
+            app:destination="@id/nav_verificationOtpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_signUpFragment"
+        android:name="net.ferraSolution.food.ui.user.signUp.SignUpFragment"
+        android:label="SignUpFragment"
+        tools:layout="@layout/fragment_signup">
+        <action
+            android:id="@+id/action_signUpFragment_to_loginFragment"
+            app:destination="@id/nav_signInFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/action_signUpFragment_to_homeFragment"
+            app:destination="@id/nav_homeFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_menuFragment"
+        android:name="net.ferraSolution.food.ui.bottomTabs.menu.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu">
+        <action
+            android:id="@+id/action_menuFragment_to_foodsFragment"
+            app:destination="@id/nav_foodListFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_homeFragment"
+        android:name="net.ferraSolution.food.ui.bottomTabs.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_nav_homeFragment_to_nav_foodDetailsFragment"
+            app:destination="@id/nav_foodDetailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/nav_ordersFragment"
+        android:name="net.ferraSolution.food.ui.bottomTabs.orders.OrdersFragment"
+        android:label="fragment_orders"
+        tools:layout="@layout/fragment_orders" />
+    <fragment
+        android:id="@+id/nav_toolsFragment"
+        android:name="net.ferraSolution.food.ui.bottomTabs.tools.ToolsFragment"
+        android:label="fragment_tools"
+        tools:layout="@layout/fragment_tools" />
+    <fragment
+        android:id="@+id/nav_verificationOtpFragment"
+        android:name="net.ferraSolution.food.ui.user.verification.VerificationOtpFragment"
+        android:label="verification_otp_fragment"
+        tools:layout="@layout/verification_otp_fragment">
+        <action
+            android:id="@+id/action_verificationOtpFragment_to_loginFragment"
+            app:destination="@id/nav_signInFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_foodListFragment"
+        android:name="net.ferraSolution.food.ui.bottomTabs.menu.foodsList.FoodsListFragment"
+        android:label="fragment_foods"
+        tools:layout="@layout/fragment_foods">
+        <argument
+            android:name="category"
+            android:defaultValue="@null"
+            app:argType="net.ferraSolution.food.data.models.CategoryModel"
+            app:nullable="true" />
+
+        <action
+            android:id="@+id/action_foodsFragment_to_menuFragment"
+            app:destination="@id/nav_menuFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_foodsFragment_to_foodDetailsFragment"
+            app:destination="@id/nav_foodDetailsFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_foodDetailsFragment"
+        android:name="net.ferraSolution.food.ui.bottomTabs.menu.foodsList.foodDetails.FoodDetailsFragment"
+        android:label="fragment_food_details"
+        tools:layout="@layout/fragment_food_details">
+
+        <action
+            android:id="@+id/action_foodDetailsFragment_to_foodListFragment"
+            app:destination="@id/nav_foodListFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right" />
+
+        <argument
+            android:name="item_food"
+            android:defaultValue="@null"
+            app:argType="net.ferraSolution.food.data.models.Foods"
+            app:nullable="true" />
+
+        <argument
+            android:name="category"
+            android:defaultValue="@null"
+            app:argType="net.ferraSolution.food.data.models.CategoryModel"
+            app:nullable="true" />
+
+        <argument
+            android:name="selected_extras"
+            android:defaultValue="@null"
+            app:argType="net.ferraSolution.food.data.models.ExtrasModel"
+            app:nullable="true" />
+
+        <argument
+            android:name="foodID"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+
+        <argument
+            android:name="menuID"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+        <action
+            android:id="@+id/action_nav_foodDetailsFragment_to_nav_homeFragment"
+            app:destination="@id/nav_homeFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_address_map_fragment"
+        android:name="net.ferraSolution.food.ui.map.AddressMapFragment"
+        android:label="AddressMapFragment"
+        tools:layout="@layout/address_map_fragment">
+
+        <argument
+            android:name="addressId"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/nav_rating_dialog_bottom_sheet_fragment"
+        android:name="net.ferraSolution.food.ui.bottomTabs.menu.foodsList.foodDetails.bottomSheet.RatingDialogBottomSheetFragment"
+        android:label="RatingDialogBottomSheetFragment"
+        tools:layout="@layout/fragment_rating_dialog_bottom_sheet">
+
+        <argument
+            android:name="item_food"
+            android:defaultValue="@null"
+            app:argType="net.ferraSolution.food.data.models.Foods"
+            app:nullable="true" />
+
+        <argument
+            android:name="category"
+            android:defaultValue="@null"
+            app:argType="net.ferraSolution.food.data.models.CategoryModel"
+            app:nullable="true" />
+
+    </dialog>
+
+    <dialog
+        android:id="@+id/nav_addon_dialog_bottom_sheet_fragment"
+        android:name="net.ferraSolution.food.ui.bottomTabs.menu.foodsList.foodDetails.bottomSheet.AddonBottomSheetFragment"
+        android:label="AddonDialogBottomSheetFragment"
+        tools:layout="@layout/fragment_addon_dialog_bottom_sheet">
+
+        <argument
+            android:name="item_food"
+            android:defaultValue="@null"
+            app:argType="net.ferraSolution.food.data.models.Foods"
+            app:nullable="true" />
+
+        <argument
+            android:name="category"
+            android:defaultValue="@null"
+            app:argType="net.ferraSolution.food.data.models.CategoryModel"
+            app:nullable="true" />
+
+        <action
+            android:id="@+id/action_nav_addon_dialog_bottom_sheet_fragment_to_nav_foodDetailsFragment"
+            app:destination="@id/nav_foodDetailsFragment"
+            app:exitAnim="@animator/fastscroll__default_hide" />
+
+    </dialog>
+
+    <action
+        android:id="@+id/action_nav_rating_dialog_bottom_sheet_fragment"
+        app:destination="@id/nav_rating_dialog_bottom_sheet_fragment" />
+
+    <action
+        android:id="@+id/action_nav_addon_dialog_bottom_sheet_fragment"
+        app:destination="@id/nav_addon_dialog_bottom_sheet_fragment" />
+
+</navigation>

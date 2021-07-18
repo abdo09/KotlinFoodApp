@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/dialog_bottom_sheet"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rounded_green_dialog_corner"
+    android:minHeight="500dp"
+    android:orientation="vertical">
+
+    <ImageButton
+        android:id="@+id/btn_cancel_dialog"
+        android:layout_width="@dimen/fifty_dp"
+        android:layout_height="@dimen/fifty_dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/cancel_dialog" />
+
+
+    <TextView
+        android:id="@+id/title_food_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_1x"
+        android:text="@string/food_rating"
+        android:textColor="@color/gold_300"
+        android:textSize="@dimen/twentyFour_sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_cancel_dialog" />
+
+    <androidx.appcompat.widget.AppCompatRatingBar
+        android:id="@+id/get_rate_from_rating_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/sixteen_dp"
+        android:isIndicator="false"
+        android:numStars="5"
+        android:progressBackgroundTint="@color/lightYellow"
+        android:progressTint="@color/duskYellow"
+        android:secondaryProgressTint="@color/transparent"
+        android:stepSize="0.5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_food_rating" />
+
+    <TextView
+        android:id="@+id/tv_title_write_comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/sixteen_dp"
+        android:layout_marginTop="@dimen/twentyFour_dp"
+        android:text="@string/please_write_your_comment"
+        android:textColor="@color/grayColorLite"
+        android:textSize="@dimen/sixteen_sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/get_rate_from_rating_bar" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ip_user_comment"
+        style="@style/TextInputLayoutGoldColor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/twentyFour_dp"
+        android:layout_marginTop="@dimen/twentyFour_dp"
+        android:layout_marginEnd="@dimen/twentyFour_dp"
+        android:hint="@string/your_comment"
+        android:textColorHint="@color/gold_300"
+        app:boxCornerRadiusBottomEnd="@dimen/twelve_dp"
+        app:boxCornerRadiusBottomStart="@dimen/twelve_dp"
+        app:boxCornerRadiusTopEnd="@dimen/twelve_dp"
+        app:boxCornerRadiusTopStart="@dimen/twelve_dp"
+        app:hintTextColor="@color/gold_300"
+        app:layout_constraintBottom_toTopOf="@+id/btn_submit_rating"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title_write_comment">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ed_user_comment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/grayColorLite"
+            android:textCursorDrawable="@drawable/cursor_color"
+            android:textSize="16sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/btn_submit_rating"
+        style="@style/Widget.AppCompat.ActionButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@drawable/rounded_button_background"
+        android:text="@string/submit"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

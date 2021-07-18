@@ -1,0 +1,203 @@
+{
+  "project_info": {
+    "project_number": "506411955069",
+    "firebase_url": "https://ferra-taga-5dbd4.firebaseio.com",
+    "project_id": "ferra-taga-5dbd4",
+    "storage_bucket": "ferra-taga-5dbd4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:506411955069:android:633172ea6d4339b0465214",
+        "android_client_info": {
+          "package_name": "com.ferra.ferrataga"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "506411955069-2g87353uipl84sj68e7r4lcvjrq22ept.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6UCEcBh69s_oiEsmmXxcQ-ZhQKjNMgLM"
+        },
+        {
+          "current_key": "AIzaSyBMDoryFL2Ii6Q7uo4kJzoq32WCeqEeeHc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "506411955069-2g87353uipl84sj68e7r4lcvjrq22ept.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:506411955069:android:3b649abcb5a45de0465214",
+        "android_client_info": {
+          "package_name": "com.ferra.taga"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "506411955069-2g87353uipl84sj68e7r4lcvjrq22ept.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6UCEcBh69s_oiEsmmXxcQ-ZhQKjNMgLM"
+        },
+        {
+          "current_key": "AIzaSyBMDoryFL2Ii6Q7uo4kJzoq32WCeqEeeHc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "506411955069-2g87353uipl84sj68e7r4lcvjrq22ept.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:506411955069:android:f134bf5b13f5dbf1465214",
+        "android_client_info": {
+          "package_name": "com.fiyafiyaro.ferrataga"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "506411955069-2g87353uipl84sj68e7r4lcvjrq22ept.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6UCEcBh69s_oiEsmmXxcQ-ZhQKjNMgLM"
+        },
+        {
+          "current_key": "AIzaSyBMDoryFL2Ii6Q7uo4kJzoq32WCeqEeeHc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "506411955069-2g87353uipl84sj68e7r4lcvjrq22ept.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:506411955069:android:060967abbeb2e94e465214",
+        "android_client_info": {
+          "package_name": "ferra.solution.ferrataga"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "506411955069-2g87353uipl84sj68e7r4lcvjrq22ept.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6UCEcBh69s_oiEsmmXxcQ-ZhQKjNMgLM"
+        },
+        {
+          "current_key": "AIzaSyBMDoryFL2Ii6Q7uo4kJzoq32WCeqEeeHc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "506411955069-2g87353uipl84sj68e7r4lcvjrq22ept.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:506411955069:android:4bf5a73d185ad6a3465214",
+        "android_client_info": {
+          "package_name": "fiyafiyaro.solution.ferrataga"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "506411955069-2g87353uipl84sj68e7r4lcvjrq22ept.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6UCEcBh69s_oiEsmmXxcQ-ZhQKjNMgLM"
+        },
+        {
+          "current_key": "AIzaSyBMDoryFL2Ii6Q7uo4kJzoq32WCeqEeeHc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "506411955069-2g87353uipl84sj68e7r4lcvjrq22ept.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:506411955069:android:ba6a5baef945040f465214",
+        "android_client_info": {
+          "package_name": "net.ferraSolution.food"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "506411955069-2g87353uipl84sj68e7r4lcvjrq22ept.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6UCEcBh69s_oiEsmmXxcQ-ZhQKjNMgLM"
+        },
+        {
+          "current_key": "AIzaSyBMDoryFL2Ii6Q7uo4kJzoq32WCeqEeeHc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "506411955069-2g87353uipl84sj68e7r4lcvjrq22ept.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

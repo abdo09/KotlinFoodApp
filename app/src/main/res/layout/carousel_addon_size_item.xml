@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/popular_category_item"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="4dp"
+    android:layout_marginEnd="@dimen/margin_1x"
+    android:layout_marginStart="@dimen/margin_end_small_x"
+    android:layout_marginBottom="4dp"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardBackgroundColor="@color/transparent"
+    app:cardCornerRadius="@dimen/margin_1x"
+    app:cardElevation="@dimen/two_dp"
+    tools:targetApi="p">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="@dimen/margin_1x"
+        android:paddingEnd="@dimen/margin_1x"
+        android:paddingTop="@dimen/margin_end_small_x"
+        android:paddingBottom="@dimen/margin_end_small_x"
+        android:background="@drawable/rounded_gradient_signup">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/addon_size_radio_button"
+            android:layout_width="@dimen/thirty_dp"
+            app:lottie_rawRes="@raw/radio_size"
+            android:layout_height="@dimen/thirty_dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_addon_size_name"
+            android:layout_width="wrap_content"
+            android:text="@string/large"
+            android:layout_marginStart="@dimen/margin_1x"
+            android:textColor="@color/white"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/addon_size_radio_button"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/left_bracket"
+            android:layout_width="wrap_content"
+            android:text="@string/left_bracket_with_plus_sign"
+            android:textStyle="bold|italic"
+            android:layout_marginStart="@dimen/margin_1x"
+            android:textColor="@color/white"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_addon_size_name"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_addon_size_price"
+            android:layout_width="wrap_content"
+            android:textStyle="bold|italic"
+            android:textColor="@color/white"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/left_bracket"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/right_bracket"
+            android:layout_width="wrap_content"
+            android:text="@string/right_bracket_with_dollar_sign"
+            android:textStyle="bold|italic"
+            android:textColor="@color/white"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_addon_size_price"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

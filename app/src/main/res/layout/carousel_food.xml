@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/food_card"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/margin_end_small_x"
+    android:layout_marginTop="@dimen/ten_sp"
+    android:layout_marginEnd="@dimen/margin_end_small_x"
+    android:layout_marginBottom="@dimen/margin_2x"
+    android:animateLayoutChanges="true"
+    android:maxHeight="216dp"
+    android:minHeight="136dp"
+    android:padding="0dp"
+    app:cardCornerRadius="@dimen/cardView_radius_main"
+    app:cardElevation="@dimen/cardView_elevation_main"
+    app:contentPadding="0dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_gradient_signup">
+
+        <ImageView
+            android:id="@+id/food_img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:minHeight="216dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/speero_logo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/rounded_gradient_carsoul_food"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:id="@+id/tv_food_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_end_small_x"
+                android:layout_marginBottom="@dimen/margin_1x"
+                android:text="ROASTED QUARTER Chicken"
+                android:textColor="@color/green_400"
+                android:textSize="@dimen/sixteen_sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/tv_food_price"
+                app:layout_constraintEnd_toStartOf="@+id/btn_rate"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_food_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_end_small_x"
+                android:layout_marginBottom="@dimen/margin_1x"
+                android:text="$5"
+                android:textColor="@color/green_400"
+                android:textSize="@dimen/sixteen_sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/btn_cart"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginEnd="4dp"
+                app:layout_constraintBottom_toBottomOf="@+id/btn_rate"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/btn_rate"
+                app:lottie_rawRes="@raw/cart" />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/btn_rate"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_food_price"
+                app:layout_constraintEnd_toStartOf="@+id/btn_cart"
+                app:layout_constraintTop_toTopOf="@+id/tv_food_name"
+                app:lottie_rawRes="@raw/like" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

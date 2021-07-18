@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="transparent">#00FFFFFF</color>
+
+    <color name="appColor">#2c4c5b</color>
+
+    <color name="appHardColor">#234050</color>
+
+    <color name="statusBarColor">#80CDA280</color>
+
+    <color name="duskYellow">#FFC928</color>
+    <color name="lightYellow">#33FFC928</color>
+
+    <color name="gold_300">#f5d2b8</color>
+    <color name="gold_400">#cda280</color>
+    <color name="gold_500">#ae896e</color>
+    <color name="gold_900">#856455</color>
+
+    <color name="orange_700">#DC6028</color>
+
+    <color name="green_200">#507d90</color>
+    <color name="green_100">#7FBCD6</color>
+    <color name="green_400">#406577</color>
+
+    <color name="black">#000000</color>
+    <color name="black_overlay_">#33000000</color>
+
+    <color name="grayColor500">#A2A5AC</color>
+
+    <color name="grayColor300">#C0CCDA</color>
+
+    <color name="grayColorLite">#E4E4E4</color>
+    <color name="white">#FFFFFF</color>
+
+    <color name="red_400">#FF4242</color>
+    <color name="grayColor">#E5E9F2</color>
+    <color name="lightGrayOverlay">#66CCCCCC</color>
+    <color name="flatBlue">#CC0D0630</color>
+    <color name="blue_overlay">#800052B6</color>
+
+</resources>
