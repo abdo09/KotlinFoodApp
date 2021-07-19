@@ -141,5 +141,6 @@
     <string name="address_found">تم العثور علي العنوان</string>
     <string name="my_location">My location</string>
     <string name="pref_user">pref_user</string>
+    <string name="proceed_to_check_out">Proceed to check out</string>
 
 </resources>

@@ -2,10 +2,13 @@ package net.ferraSolution.food.data.repository
 
 import android.content.Context
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import net.ferraSolution.food.data.paths.FireStoreConfig
 import net.ferraSolution.food.utils.Constants
 import timber.log.Timber
 
-class AuthRepository(private var auth: FirebaseAuth) {
+class AuthRepository(private val database: FirebaseDatabase, private var auth: FirebaseAuth) {
 
     fun createUser(email: String?, password: String?, context: Context) {
         try {
@@ -52,6 +55,12 @@ class AuthRepository(private var auth: FirebaseAuth) {
         } catch (ex: Exception) {
             ex.printStackTrace()
         }
+    }
+
+    fun getUserInfo() : DatabaseReference? {
+        return if (isUserLogged())
+            database.getReference(FireStoreConfig.USERS)
+        else null
     }
 
     fun isUserLogged(): Boolean {

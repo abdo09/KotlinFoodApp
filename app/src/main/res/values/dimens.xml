@@ -42,4 +42,5 @@
     <dimen name="cardView_elevation_main">@dimen/margin_1x</dimen>
     <dimen name="primary_button_height">56dp</dimen>
     <dimen name="padding_2x">8dp</dimen>
+    <dimen name="eighty_dp">80dp</dimen>
 </resources>

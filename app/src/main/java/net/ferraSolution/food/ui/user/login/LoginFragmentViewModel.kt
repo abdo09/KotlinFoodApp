@@ -3,7 +3,9 @@ package net.ferraSolution.food.ui.user.login
 import android.app.Activity
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.auth.*
+import com.google.firebase.database.FirebaseDatabase
 import net.ferraSolution.food.base.BaseViewModel
+import net.ferraSolution.food.data.repository.AuthRepository
 import net.ferraSolution.food.utils.CookieBarConfig
 import timber.log.Timber
 import java.util.concurrent.TimeUnit

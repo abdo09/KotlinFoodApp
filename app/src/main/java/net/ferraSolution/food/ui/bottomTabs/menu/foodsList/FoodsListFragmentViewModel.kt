@@ -10,6 +10,7 @@ import kotlinx.coroutines.withContext
 import net.ferraSolution.food.data.dao.CartItemDAO
 import net.ferraSolution.food.data.dao.MenuDAO
 import net.ferraSolution.food.data.models.*
+import net.ferraSolution.food.data.repository.AuthRepository
 import net.ferraSolution.food.data.repository.HomeRepository
 import net.ferraSolution.food.data.repository.MenuRepository
 import net.ferraSolution.food.data.repository.roomRepository.CartRoomRepository
@@ -24,8 +25,9 @@ class FoodsListFragmentViewModel(
     menuRoomRepository: MenuRoomRepository,
     private val cartRoomRepository: CartRoomRepository,
     private val userRoomRepository: UserRoomRepository,
-    homeRepository: HomeRepository
-) : MenuFragmentViewModel(menuRepository, menuDAO, menuRoomRepository, homeRepository) {
+    homeRepository: HomeRepository,
+    authRepository: AuthRepository
+) : MenuFragmentViewModel(menuRepository, menuDAO, menuRoomRepository, homeRepository, authRepository) {
 
     var userMenu: MutableLiveData<UserModel> = MutableLiveData()
     var foods: MutableLiveData<ArrayList<Foods?>> = MutableLiveData()

@@ -6,6 +6,7 @@ import com.google.firebase.database.ValueEventListener
 import net.ferraSolution.food.data.dao.MenuDAO
 import net.ferraSolution.food.data.models.CommentModel
 import net.ferraSolution.food.data.models.Foods
+import net.ferraSolution.food.data.repository.AuthRepository
 import net.ferraSolution.food.data.repository.HomeRepository
 import net.ferraSolution.food.data.repository.MenuRepository
 import net.ferraSolution.food.data.repository.roomRepository.MenuRoomRepository
@@ -15,8 +16,9 @@ class RatingDialogViewModel(
     menuRepository: MenuRepository,
     menuDAO: MenuDAO,
     menuRoomRepository: MenuRoomRepository,
-    homeRepository: HomeRepository
-) : MenuFragmentViewModel(menuRepository, menuDAO, menuRoomRepository, homeRepository) {
+    homeRepository: HomeRepository,
+    authRepository: AuthRepository
+) : MenuFragmentViewModel(menuRepository, menuDAO, menuRoomRepository, homeRepository, authRepository) {
 
     fun updateRate(
         menuId: String,

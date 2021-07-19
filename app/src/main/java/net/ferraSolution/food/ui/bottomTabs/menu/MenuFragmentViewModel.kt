@@ -11,6 +11,7 @@ import net.ferraSolution.food.base.BaseViewModel
 import net.ferraSolution.food.data.dao.MenuDAO
 import net.ferraSolution.food.data.models.AddonModel
 import net.ferraSolution.food.data.models.CategoryModel
+import net.ferraSolution.food.data.repository.AuthRepository
 import net.ferraSolution.food.data.repository.HomeRepository
 import net.ferraSolution.food.data.repository.MenuRepository
 import net.ferraSolution.food.data.repository.roomRepository.MenuRoomRepository
@@ -21,8 +22,9 @@ open class MenuFragmentViewModel(
     val menuRepository: MenuRepository,
     val menuDAO: MenuDAO,
     private val menuRoomRepository: MenuRoomRepository,
-    homeRepository: HomeRepository
-) : HomeFragmentViewModel(homeRepository, menuRepository) {
+    homeRepository: HomeRepository,
+    authRepository: AuthRepository
+) : HomeFragmentViewModel(homeRepository, menuRepository, authRepository) {
 
     var category: MutableLiveData<ArrayList<CategoryModel?>> = MutableLiveData()
     var foodRate: MutableLiveData<Double> = MutableLiveData()

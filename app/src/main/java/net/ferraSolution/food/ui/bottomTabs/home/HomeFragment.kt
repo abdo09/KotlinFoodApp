@@ -38,6 +38,8 @@ class HomeFragment : BaseSupportFragment(R.layout.fragment_home), HomePageContro
         }
 
         viewModel.getAllCategories()
+        val uid = Constants().getUid(requireContext())
+        viewModel.getUserInfo(uid, requireContext())
 
     }
 

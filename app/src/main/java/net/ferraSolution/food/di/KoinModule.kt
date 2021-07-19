@@ -6,7 +6,7 @@ import net.ferraSolution.food.ui.bottomTabs.home.HomeFragmentViewModel
 import net.ferraSolution.food.ui.bottomTabs.menu.MenuFragmentViewModel
 import net.ferraSolution.food.ui.bottomTabs.menu.foodsList.foodDetails.RatingDialogViewModel
 import net.ferraSolution.food.ui.bottomTabs.menu.foodsList.FoodsListFragmentViewModel
-import net.ferraSolution.food.ui.bottomTabs.orders.OrdersFragmentViewModel
+import net.ferraSolution.food.ui.bottomTabs.cart.CartFragmentViewModel
 import net.ferraSolution.food.ui.bottomTabs.tools.ToolsFragmentViewModel
 import net.ferraSolution.food.ui.map.AddressMapViewModel
 import net.ferraSolution.food.ui.user.login.LoginFragmentViewModel
@@ -19,16 +19,16 @@ val appModules = module {
 
     viewModel { SignUpFragmentViewModel(get(), get(), get()) }
     viewModel { LoginFragmentViewModel(get()) }
-    viewModel { HomeFragmentViewModel(get(), get()) }
-    viewModel { MenuFragmentViewModel(get(), get(), get(), get()) }
-    viewModel { FoodsListFragmentViewModel(get(), get(), get(), get(), get(), get(), get()) }
-    viewModel { RatingDialogViewModel(get(), get(), get(), get()) }
-    viewModel { OrdersFragmentViewModel() }
+    viewModel { HomeFragmentViewModel(get(), get(), get()) }
+    viewModel { MenuFragmentViewModel(get(), get(), get(), get(), get()) }
+    viewModel { FoodsListFragmentViewModel(get(), get(), get(), get(), get(), get(), get(), get()) }
+    viewModel { RatingDialogViewModel(get(), get(), get(), get(), get()) }
+    viewModel { CartFragmentViewModel() }
     viewModel { ToolsFragmentViewModel() }
     viewModel { VerificationViewModel() }
     viewModel { AddressMapViewModel(get()) }
 
-    factory { AuthRepository(get()) }
+    factory { AuthRepository(get(), get()) }
     factory { HomeRepository(get(), get()) }
     factory { MenuRepository(get(), get()) }
 

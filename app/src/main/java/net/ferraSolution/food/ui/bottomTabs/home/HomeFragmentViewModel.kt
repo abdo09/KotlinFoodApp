@@ -1,6 +1,7 @@
 package net.ferraSolution.food.ui.bottomTabs.home
 
 
+import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -9,10 +10,16 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import net.ferraSolution.food.base.BaseViewModel
 import net.ferraSolution.food.data.models.*
+import net.ferraSolution.food.data.repository.AuthRepository
 import net.ferraSolution.food.data.repository.HomeRepository
 import net.ferraSolution.food.data.repository.MenuRepository
+import net.ferraSolution.food.utils.Constants
 
-open class HomeFragmentViewModel(private val homeRepository: HomeRepository, private val menuRepository: MenuRepository): BaseViewModel() {
+open class HomeFragmentViewModel(
+    private val homeRepository: HomeRepository,
+    private val menuRepository: MenuRepository,
+    private val authRepository: AuthRepository
+) : BaseViewModel() {
 
     var popularCategories: MutableLiveData<List<PopularCategoriesResponse>> = MutableLiveData()
     var bestDeals: MutableLiveData<List<BestDealModel>> = MutableLiveData()
@@ -83,7 +90,7 @@ open class HomeFragmentViewModel(private val homeRepository: HomeRepository, pri
             })
     }
 
-    fun getPopularCategories(){
+    fun getPopularCategories() {
         var popularCategoriesListTemp: List<PopularCategoriesResponse?>
 
         homeRepository.getMostPopular()?.get()?.addOnSuccessListener { snapshot ->
@@ -106,7 +113,7 @@ open class HomeFragmentViewModel(private val homeRepository: HomeRepository, pri
 
     }
 
-    fun getBestDeals(showLoad: Boolean){
+    fun getBestDeals(showLoad: Boolean) {
         showLoading.postValue(showLoad)
         var bestDealsListTemp: List<BestDealModel?>
 
@@ -131,6 +138,23 @@ open class HomeFragmentViewModel(private val homeRepository: HomeRepository, pri
                 showLoading.postValue(false)
             }
 
+    }
+
+    fun getUserInfo(uid: String?, context: Context) {
+        showLoading.value = false
+        authRepository.getUserInfo()?.child(uid?: "")
+            ?.addListenerForSingleValueEvent(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val model = snapshot.getValue(UserModel::class.java)
+                    Constants().setUser(context, model ?: UserModel())
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    showLoading.postValue(false)
+                    showError.postValue(error.message)
+                }
+
+            })
     }
 
 }
