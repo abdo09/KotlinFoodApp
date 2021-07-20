@@ -3,7 +3,10 @@ package net.ferraSolution.food.ui.bottomTabs.cart
 import android.os.Bundle
 import android.view.View
 import androidx.activity.OnBackPressedCallback
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.fragment_cart.*
 import kotlinx.android.synthetic.main.fragment_foods.*
@@ -14,6 +17,7 @@ import net.ferraSolution.food.base.BaseSupportFragment
 import net.ferraSolution.food.data.models.OrderModel
 import net.ferraSolution.food.ui.HomeActivity
 import net.ferraSolution.food.ui.bottomTabs.menu.foodsList.adapter.FoodsAdapter
+import net.ferraSolution.food.ui.common.SwipeToDeleteCallback
 import net.ferraSolution.food.utils.Constants
 import net.ferraSolution.food.utils.fadeIn
 import net.ferraSolution.food.utils.fadeOut
@@ -46,10 +50,25 @@ class CartFragment : BaseSupportFragment(R.layout.fragment_cart) {
 
     private fun setupRecyclerView() {
         cartAdapter = CartAdapter()
+
         rv_cart.apply {
             adapter = cartAdapter
             layoutManager = LinearLayoutManager(activity)
+            addItemDecoration(DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL))
         }
+
+        val swipeHandler = object : SwipeToDeleteCallback(requireContext()) {
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val itemToDelete = cartAdapter.differ.currentList[viewHolder.adapterPosition]
+                viewModel.launch(Dispatchers.IO) {
+                    viewModel.cartRoomRepository.deleteItemInCart(itemToDelete)
+                    viewModel.getAllCart(Constants().getUid(requireContext()))
+                }
+            }
+        }
+
+        val itemTouchHelper = ItemTouchHelper(swipeHandler)
+        itemTouchHelper.attachToRecyclerView(rv_cart)
     }
 
     private fun initViews() {

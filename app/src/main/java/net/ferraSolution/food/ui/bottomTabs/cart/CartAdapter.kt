@@ -85,6 +85,11 @@ class CartAdapter: RecyclerView.Adapter<CartAdapter.CartViewHolder>() {
 
     }
 
+    fun removeAt(position: Int) {
+        differ.currentList.removeAt(position)
+        notifyItemRemoved(position)
+    }
+
     fun setOnItemClickListener(listener: (List<OrderModel.CartItem>) -> Unit) {
         onItemClickListener = listener
     }
