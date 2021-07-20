@@ -17,6 +17,7 @@ import net.ferraSolution.food.ui.bottomTabs.menu.foodsList.adapter.FoodsAdapter
 import net.ferraSolution.food.utils.Constants
 import net.ferraSolution.food.utils.fadeIn
 import net.ferraSolution.food.utils.fadeOut
+import net.ferraSolution.food.utils.formatPrice
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class CartFragment : BaseSupportFragment(R.layout.fragment_cart) {
@@ -34,6 +35,13 @@ class CartFragment : BaseSupportFragment(R.layout.fragment_cart) {
         setupRecyclerView()
         viewModelObserver()
         addCallBackToExit()
+        onClickListener()
+    }
+
+    private fun onClickListener() {
+        cartAdapter.setOnItemClickListener {cartList ->
+            calculateTotalPrice(cartAdapter.differ.currentList)
+        }
     }
 
     private fun setupRecyclerView() {
@@ -53,7 +61,7 @@ class CartFragment : BaseSupportFragment(R.layout.fragment_cart) {
 
     private fun viewModelObserver() {
         viewModel.allCart.observe(viewLifecycleOwner, {
-            if (it.isNullOrEmpty()){
+            if (it.isNullOrEmpty()) {
                 card_recycler_container.fadeOut(300)
                 card_price_container.fadeOut(300)
                 empty_layout.fadeIn(300)
@@ -62,6 +70,7 @@ class CartFragment : BaseSupportFragment(R.layout.fragment_cart) {
                 card_recycler_container.fadeIn(300)
                 card_price_container.fadeIn(300)
                 cartAdapter.differ.submitList(it)
+                calculateTotalPrice(it)
             }
         })
     }
@@ -79,6 +88,17 @@ class CartFragment : BaseSupportFragment(R.layout.fragment_cart) {
             }
         }
 
+    }
+
+    private fun calculateTotalPrice(cartList: List<OrderModel.CartItem>){
+        var totalPrice = 0.0
+
+        cartList.forEach { cartItem ->
+            totalPrice += (cartItem.foodPrice?.toDouble()
+                ?.let { cartItem.foodExtraPrice?.plus(it) }
+                ?: 0.0).times(cartItem.foodQuantity.toString().toInt())
+            tv_cart_price.text = totalPrice.formatPrice()
+        }
     }
 
 }
