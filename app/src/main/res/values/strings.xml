@@ -142,5 +142,10 @@
     <string name="my_location">My location</string>
     <string name="pref_user">pref_user</string>
     <string name="proceed_to_check_out">Proceed to check out</string>
+    <string name="total_price">Total price</string>
+    <string name="_5_00">5.00</string>
+    <string name="cart">Cart</string>
+    <string name="empty_cart">You didn\'t add to the cart, continue the shopping journey and add what you want</string>
+    <string name="shop_now">Shop now</string>
 
 </resources>

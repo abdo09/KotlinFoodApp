@@ -6,7 +6,7 @@ import net.ferraSolution.food.data.models.OrderModel
 
 interface CartRoomRepository {
 
-    fun getAllCartFromDB(uid: String): List<OrderModel.CartItem>
+    fun getAllCartFromDB(uid: String?): List<OrderModel.CartItem>
     fun countItemInCart(uid: String): LiveData<Int?>
     fun sumPrice(uid: String): LiveData<Long>
     fun getItemInCart(foodID: String, uid: String): OrderModel.CartItem?
@@ -25,7 +25,7 @@ interface CartRoomRepository {
 class CartRoomRepositoryImp(
     private val cartItemDAO: CartItemDAO
 ) : CartRoomRepository {
-    override fun getAllCartFromDB(uid: String): List<OrderModel.CartItem> {
+    override fun getAllCartFromDB(uid: String?): List<OrderModel.CartItem> {
         return cartItemDAO.getAllCart(uid = uid)
     }
 

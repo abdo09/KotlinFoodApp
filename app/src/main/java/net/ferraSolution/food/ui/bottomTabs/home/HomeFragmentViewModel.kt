@@ -25,6 +25,7 @@ open class HomeFragmentViewModel(
     var bestDeals: MutableLiveData<List<BestDealModel>> = MutableLiveData()
 
     var categories: MutableLiveData<CategoryModel> = MutableLiveData()
+    var userModel: MutableLiveData<UserModel> = MutableLiveData()
     var food: MutableLiveData<Foods> = MutableLiveData()
     var foodLoaded: MutableLiveData<Boolean> = MutableLiveData()
 
@@ -140,13 +141,13 @@ open class HomeFragmentViewModel(
 
     }
 
-    fun getUserInfo(uid: String?, context: Context) {
+    fun getUserInfo(uid: String?) {
         showLoading.value = false
         authRepository.getUserInfo()?.child(uid?: "")
             ?.addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     val model = snapshot.getValue(UserModel::class.java)
-                    Constants().setUser(context, model ?: UserModel())
+                   userModel.postValue(model)
                 }
 
                 override fun onCancelled(error: DatabaseError) {

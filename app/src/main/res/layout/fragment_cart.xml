@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:paddingBottom="76dp"
+    android:layout_height="match_parent"
+    android:clipToPadding="false"
+    android:background="@drawable/rounded_gradient_signup"
+    tools:context=".ui.bottomTabs.cart.CartFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/empty_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/imageView10"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias=".50"
+            app:srcCompat="@drawable/basket_icon" />
+
+        <TextView
+            android:id="@+id/action_text"
+            style="@style/boldMainText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="32dp"
+            android:text="@string/empty_cart"
+            android:textAlignment="center"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView10" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/shop_now_button"
+            style="@style/GradientPlusMinusButtonGreen"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/medium_button_height"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="32dp"
+            android:text="@string/shop_now"
+            android:textSize="@dimen/sixteen_sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/action_text" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_recycler_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/sixteen_dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:clipToPadding="false"
+        android:paddingBottom="@dimen/margin_1x"
+        android:visibility="visible"
+        app:cardCornerRadius="@dimen/sixteen_dp"
+        app:layout_constraintBottom_toTopOf="@id/card_price_container"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/rounded_gradient_signup">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_cart"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:paddingBottom="@dimen/margin_1x"
+                tools:listitem="@layout/cart_item" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_price_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/sixteen_dp"
+        android:layout_marginEnd="@dimen/sixteen_dp"
+        android:visibility="visible"
+        app:cardCornerRadius="@dimen/sixteen_dp"
+        app:cardElevation="@dimen/margin_1x"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/home_background">
+
+            <TextView
+                android:id="@+id/cart_total_price_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_1x"
+                android:layout_marginTop="@dimen/margin_1x"
+                android:text="@string/total_price"
+                android:textColor="#FBFBFB"
+                android:textSize="@dimen/sixteen_sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/tv_cart_price"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_cart_sign_dollar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/twentyFour_dp"
+                android:layout_marginTop="@dimen/sixteen_dp"
+                android:layout_marginBottom="@dimen/sixteen_dp"
+                android:text="@string/sign_dollar"
+                android:textColor="@color/gold_300"
+                android:textSize="@dimen/twentyFour_sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/btn_proceed_to_check_out"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cart_total_price_title" />
+
+            <TextView
+                android:id="@+id/tv_cart_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_1x"
+                android:layout_marginTop="@dimen/sixteen_dp"
+                android:layout_marginBottom="@dimen/sixteen_dp"
+                android:text="@string/_5_00"
+                android:textColor="#FBFBFB"
+                android:textSize="@dimen/twenty_sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/btn_proceed_to_check_out"
+                app:layout_constraintStart_toEndOf="@id/tv_cart_sign_dollar"
+                app:layout_constraintTop_toBottomOf="@id/cart_total_price_title" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_proceed_to_check_out"
+                style="@style/GradientPlusMinusButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_1x"
+                android:clickable="true"
+                android:focusable="true"
+                android:text="@string/proceed_to_check_out"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

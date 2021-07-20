@@ -3,28 +3,72 @@ package net.ferraSolution.food.ui.bottomTabs.cart
 import android.os.Bundle
 import android.view.View
 import androidx.activity.OnBackPressedCallback
+import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.activity_home.*
+import kotlinx.android.synthetic.main.fragment_cart.*
+import kotlinx.android.synthetic.main.fragment_foods.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import net.ferraSolution.food.R
 import net.ferraSolution.food.base.BaseSupportFragment
+import net.ferraSolution.food.data.models.OrderModel
 import net.ferraSolution.food.ui.HomeActivity
+import net.ferraSolution.food.ui.bottomTabs.menu.foodsList.adapter.FoodsAdapter
+import net.ferraSolution.food.utils.Constants
+import net.ferraSolution.food.utils.fadeIn
+import net.ferraSolution.food.utils.fadeOut
 import org.koin.android.viewmodel.ext.android.viewModel
 
-class CartFragment : BaseSupportFragment(R.layout.fragment_orders) {
+class CartFragment : BaseSupportFragment(R.layout.fragment_cart) {
 
     override val viewModel by viewModel<CartFragmentViewModel>()
 
+    private lateinit var cartAdapter: CartAdapter
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        setAppBarVisibilityAndTitle(View.VISIBLE, R.string.order)
+        setAppBarVisibilityAndTitle(View.VISIBLE, R.string.cart)
         navigationVisibility = View.VISIBLE
 
+        initViews()
+        setupRecyclerView()
+        viewModelObserver()
         addCallBackToExit()
+    }
+
+    private fun setupRecyclerView() {
+        cartAdapter = CartAdapter()
+        rv_cart.apply {
+            adapter = cartAdapter
+            layoutManager = LinearLayoutManager(activity)
+        }
+    }
+
+    private fun initViews() {
+        val uid = Constants().getUid(requireContext())
+        viewModel.launch(Dispatchers.IO) {
+            viewModel.getAllCart(uid)
+        }
+    }
+
+    private fun viewModelObserver() {
+        viewModel.allCart.observe(viewLifecycleOwner, {
+            if (it.isNullOrEmpty()){
+                card_recycler_container.fadeOut(300)
+                card_price_container.fadeOut(300)
+                empty_layout.fadeIn(300)
+            } else {
+                empty_layout.fadeOut(300)
+                card_recycler_container.fadeIn(300)
+                card_price_container.fadeIn(300)
+                cartAdapter.differ.submitList(it)
+            }
+        })
     }
 
     private fun addCallBackToExit() {
         activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, callBack)
     }
-
 
     private val callBack: OnBackPressedCallback = object : OnBackPressedCallback(true) {
         override fun handleOnBackPressed() {

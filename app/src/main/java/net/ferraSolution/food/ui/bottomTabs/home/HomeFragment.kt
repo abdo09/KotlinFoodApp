@@ -12,6 +12,7 @@ import net.ferraSolution.food.base.BaseSupportFragment
 import net.ferraSolution.food.data.models.BestDealModel
 import net.ferraSolution.food.data.models.CategoryModel
 import net.ferraSolution.food.data.models.PopularCategoriesResponse
+import net.ferraSolution.food.data.models.UserModel
 import net.ferraSolution.food.utils.Constants
 import net.ferraSolution.food.utils.replaceAllId
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -39,7 +40,7 @@ class HomeFragment : BaseSupportFragment(R.layout.fragment_home), HomePageContro
 
         viewModel.getAllCategories()
         val uid = Constants().getUid(requireContext())
-        viewModel.getUserInfo(uid, requireContext())
+        viewModel.getUserInfo(uid)
 
     }
 
@@ -78,6 +79,10 @@ class HomeFragment : BaseSupportFragment(R.layout.fragment_home), HomePageContro
 
         viewModel.allCategories.observe(viewLifecycleOwner, {
             allCategories = it
+        })
+
+        viewModel.userModel.observe(viewLifecycleOwner, {
+            Constants().setUser(requireContext(), it)
         })
 
     }

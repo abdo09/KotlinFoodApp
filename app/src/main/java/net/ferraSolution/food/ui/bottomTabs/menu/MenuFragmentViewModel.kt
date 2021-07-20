@@ -29,6 +29,8 @@ open class MenuFragmentViewModel(
     var category: MutableLiveData<ArrayList<CategoryModel?>> = MutableLiveData()
     var foodRate: MutableLiveData<Double> = MutableLiveData()
 
+    var categoryModel = CategoryModel()
+
     var addons: MutableLiveData<List<AddonModel>> = MutableLiveData<List<AddonModel>>()
 
     fun getCategories(loading: Boolean) {

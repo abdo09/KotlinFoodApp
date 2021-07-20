@@ -23,7 +23,7 @@ val appModules = module {
     viewModel { MenuFragmentViewModel(get(), get(), get(), get(), get()) }
     viewModel { FoodsListFragmentViewModel(get(), get(), get(), get(), get(), get(), get(), get()) }
     viewModel { RatingDialogViewModel(get(), get(), get(), get(), get()) }
-    viewModel { CartFragmentViewModel() }
+    viewModel { CartFragmentViewModel(get()) }
     viewModel { ToolsFragmentViewModel() }
     viewModel { VerificationViewModel() }
     viewModel { AddressMapViewModel(get()) }

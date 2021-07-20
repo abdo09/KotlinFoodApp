@@ -20,7 +20,7 @@ class ToolsFragment : BaseSupportFragment(R.layout.fragment_tools) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        setAppBarVisibilityAndTitle(View.VISIBLE, R.string.tools)
         navigationVisibility = View.VISIBLE
 
         addCallBackToExit()

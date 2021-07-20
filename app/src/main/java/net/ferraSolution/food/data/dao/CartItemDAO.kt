@@ -9,7 +9,7 @@ abstract class CartItemDAO : BaseDao<OrderModel.CartItem?> {
 
 
     @Query("select * from ${OrderModel.CartItem.TABLE_NAME} WHERE uid =:uid")
-    abstract fun getAllCart(uid: String): List<OrderModel.CartItem>
+    abstract fun getAllCart(uid: String?): List<OrderModel.CartItem>
 
     @Query("select SUM(foodQuantity) from ${OrderModel.CartItem.TABLE_NAME} WHERE uid =:uid")
     abstract fun countItemInCart(uid: String): LiveData<Int?>

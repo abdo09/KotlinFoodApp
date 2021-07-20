@@ -2,10 +2,8 @@ package net.ferraSolution.food.ui.bottomTabs.menu.foodsList.foodDetails
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.navigation.fragment.navArgs
-import com.airbnb.lottie.LottieAnimationView
 import kotlinx.android.synthetic.main.fragment_food_details.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -211,7 +209,7 @@ class FoodDetailsFragment : BaseSupportFragment(R.layout.fragment_food_details) 
             this.foodSize = cartItemSize
             this.foodId = foods?.id ?: ""
             this.foodExtraPrice = extraPrice
-            this.foodQuantity = 1
+            this.foodQuantity = tv_current_value.text.toString().toInt()
             this.foodName = foods?.name
             this.foodPrice = foods?.price
             this.foodImage = foods?.image
@@ -278,8 +276,9 @@ class FoodDetailsFragment : BaseSupportFragment(R.layout.fragment_food_details) 
     }
 
     private fun itemsInCartCounter() {
+        val uid = Constants().getUid(requireContext()) ?: ""
         viewModel.launch {
-            viewModel.countItemInCart(Constants().getUid(requireContext()) ?: "")
+            viewModel.countItemInCart(uid = uid)
                 .observe(viewLifecycleOwner, {
                     if (it ?: 0 > 0)
                         setCartCount(it ?: 0, View.VISIBLE)

@@ -81,12 +81,6 @@ class FoodsListFragment :
             }
         })
 
-        viewModel.launch {
-            viewModel.getLocalUser().observe(viewLifecycleOwner, {
-                Constants().setUser(requireContext(), it ?: UserModel())
-            })
-        }
-
     }
 
     @SuppressLint("LogNotTimber")
