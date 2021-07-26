@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dialog_bottom_sheet"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/home_background"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/title_address_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_1x"
+        android:layout_marginTop="@dimen/sixteen_dp"
+        android:text="@string/address_details"
+        android:textColor="@color/gold_300"
+        android:textSize="@dimen/twentyFour_sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ip_address_details_city"
+        style="@style/TextInputLayoutGoldColor"
+        android:layout_marginTop="@dimen/sixteen_dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/sixteen_dp"
+        android:hint="@string/city"
+        android:textColorHint="@color/gold_300"
+        app:boxCornerRadiusBottomEnd="@dimen/twelve_dp"
+        app:boxCornerRadiusBottomStart="@dimen/twelve_dp"
+        app:boxCornerRadiusTopEnd="@dimen/twelve_dp"
+        app:boxCornerRadiusTopStart="@dimen/twelve_dp"
+        app:hintTextColor="@color/gold_300"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_address_details">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ed_address_details_city"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/grayColorLite"
+            android:textCursorDrawable="@drawable/cursor_color"
+            android:textSize="16sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ip_address_details_street"
+        style="@style/TextInputLayoutGoldColor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/sixteen_dp"
+        android:layout_marginTop="@dimen/eighteen_dp"
+        android:layout_marginEnd="@dimen/sixteen_dp"
+        android:hint="@string/street"
+        android:textColorHint="@color/gold_300"
+        app:boxCornerRadiusBottomEnd="@dimen/twelve_dp"
+        app:boxCornerRadiusBottomStart="@dimen/twelve_dp"
+        app:boxCornerRadiusTopEnd="@dimen/twelve_dp"
+        app:boxCornerRadiusTopStart="@dimen/twelve_dp"
+        app:hintTextColor="@color/gold_300"
+        app:layout_constraintStart_toStartOf="@+id/ip_address_details_city"
+        app:layout_constraintTop_toBottomOf="@+id/ip_address_details_city">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ed_address_details_street"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/grayColorLite"
+            android:textCursorDrawable="@drawable/cursor_color"
+            android:textSize="16sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ip_address_details_district"
+        style="@style/TextInputLayoutGoldColor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/sixteen_dp"
+        android:layout_marginTop="@dimen/eighteen_dp"
+        android:layout_marginEnd="@dimen/sixteen_dp"
+        android:hint="@string/district"
+        android:textColorHint="@color/gold_300"
+        app:boxCornerRadiusBottomEnd="@dimen/twelve_dp"
+        app:boxCornerRadiusBottomStart="@dimen/twelve_dp"
+        app:boxCornerRadiusTopEnd="@dimen/twelve_dp"
+        app:boxCornerRadiusTopStart="@dimen/twelve_dp"
+        app:hintTextColor="@color/gold_300"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ip_address_details_street">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ed_address_details_district"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/grayColorLite"
+            android:textCursorDrawable="@drawable/cursor_color"
+            android:textSize="16sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/ip_address_details_shipping_address_details"
+        style="@style/TextInputLayoutGoldColor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/sixteen_dp"
+        android:layout_marginTop="@dimen/eighteen_dp"
+        android:layout_marginEnd="@dimen/sixteen_dp"
+        android:hint="@string/building_no"
+        android:textColorHint="@color/gold_300"
+        app:boxCornerRadiusBottomEnd="@dimen/twelve_dp"
+        app:boxCornerRadiusBottomStart="@dimen/twelve_dp"
+        app:boxCornerRadiusTopEnd="@dimen/twelve_dp"
+        app:boxCornerRadiusTopStart="@dimen/twelve_dp"
+        app:hintTextColor="@color/gold_300"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ip_address_details_district">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ed_address_details_shipping_building_no"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/grayColorLite"
+            android:textCursorDrawable="@drawable/cursor_color"
+            android:textSize="16sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:layout_marginStart="@dimen/margin_1x"
+        android:id="@+id/title_payment_method"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/sixteen_dp"
+        android:text="@string/payment_method"
+        android:textColor="@color/gold_300"
+        android:textSize="@dimen/twentyFour_sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ip_address_details_shipping_address_details" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/sixteen_dp"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_payment_method">
+
+        <RelativeLayout
+            android:id="@+id/btn_cod"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="12dp"
+            android:layout_weight="1"
+            android:background="@drawable/boarder_gold500_color">
+
+            <TextView
+                android:id="@+id/tv_cod"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/cash_on_delivery"
+                android:padding="@dimen/sixteen_dp"
+                android:paddingStart="@dimen/margin_start_small_x"
+                android:paddingEnd="@dimen/margin_start_small_x"
+                android:textColorHint="@color/gold_300"
+                android:textSize="@dimen/twelve_sp"
+                tools:ignore="Autofill,RelativeOverlap,TextFields"
+                tools:layout_editor_absoluteY="406dp" />
+
+            <ImageView
+                android:id="@+id/image_cod"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/eighteen_dp"
+                app:srcCompat="@drawable/ic_checked_gender"
+                tools:ignore="ContentDescription" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/btn_braintree"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="24dp"
+            android:layout_weight="1"
+            android:background="@drawable/boarder_gray_color">
+
+            <TextView
+                android:id="@+id/tv_braintree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/braintree"
+                android:padding="@dimen/sixteen_dp"
+                android:paddingStart="@dimen/sixteen_dp"
+                android:paddingEnd="@dimen/sixteen_dp"
+                android:textColorHint="@color/grayColorLite"
+                android:textSize="@dimen/twelve_sp"
+                tools:ignore="Autofill,RelativeOverlap,TextFields"
+                tools:layout_editor_absoluteY="406dp" />
+
+            <ImageView
+                android:id="@+id/image_braintree"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/eighteen_dp"
+                app:srcCompat="@drawable/ic_unchecked_gender"
+                tools:ignore="ContentDescription" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/add_address_location"
+        style="@style/GradientButtonRounded"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="@dimen/twentyFour_dp"
+        android:layout_marginTop="@dimen/twentyFour_dp"
+        android:layout_marginEnd="@dimen/twentyFour_dp"
+        android:text="@string/confirm"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

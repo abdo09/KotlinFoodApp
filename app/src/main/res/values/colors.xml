@@ -38,5 +38,6 @@
     <color name="lightGrayOverlay">#66CCCCCC</color>
     <color name="flatBlue">#CC0D0630</color>
     <color name="blue_overlay">#800052B6</color>
+    <color name="textColorDark">#FFE4E4E4</color>
 
 </resources>

@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <style name="roundedImageView" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">10dp</item>
+    </style>
+
     <style name="boldMainText" parent="">
         <item name="android:textColor">#0D0630</item>
         <item name="android:textSize">16sp</item>
@@ -49,12 +54,12 @@
     </style>
 
     <style name="TextInputLayoutGoldColor" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="boxStrokeColor">@color/text_input_stroke_color</item>
-        <item name="android:textColor">@color/grayColorLite</item>
+        <item name="boxStrokeColor">@color/text_input_stroke_gold_color</item>
+        <item name="android:textColor">@color/gold_300</item>
     </style>
 
     <style name="TextInputLayoutGrayColor" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <item name="boxStrokeColor">@color/text_input_stroke_color</item>
+        <item name="boxStrokeColor">@color/text_input_stroke_gray_color</item>
     </style>
 
     <style name="TextInputEditTextColor" parent="Theme.MaterialComponents">
@@ -96,6 +101,11 @@
 
     <style name="MYBottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
         <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="GoldEditTextStyle" parent="Widget.AppCompat.EditText">
+        <item name="colorControlActivated">@color/gold_300</item>
+        <item name="colorControlNormal">@color/gold_300</item>
     </style>
 
 </resources>

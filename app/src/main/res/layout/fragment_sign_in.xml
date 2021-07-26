@@ -11,7 +11,7 @@
         android:id="@+id/login_emailPassword_layout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:visibility="visible"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -168,7 +168,7 @@
         android:id="@+id/login_otp_layout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -255,6 +255,8 @@
                         android:id="@+id/ed_login_phoneNumber"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/grayColorLite"
+                        android:textCursorDrawable="@drawable/cursor_color"
                         android:digits="0123456789"
                         android:inputType="number"
                         android:maxLength="10" />
@@ -276,27 +278,203 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/codePicker_phoneNumber_container" />
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_send_otp"
-                style="@style/Widget.AppCompat.ActionButton"
+            <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginTop="32dp"
+                app:cardCornerRadius="@dimen/margin_1x"
                 android:layout_marginEnd="24dp"
-                android:background="@drawable/rounded_gradient_signup"
-                android:elevation="@dimen/ten_dp"
-                android:gravity="center"
-                android:padding="@dimen/sixteen_dp"
-                android:shadowColor="@color/grayColorLite"
-                android:text="@string/btn_send_otp"
-                android:textColor="@color/grayColorLite"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/view_number_layout"
-                tools:targetApi="lollipop" />
+                app:layout_constraintTop_toBottomOf="@+id/view_number_layout">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_send_otp"
+                    style="@style/Widget.AppCompat.ActionButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/rounded_gradient_signup"
+                    android:elevation="@dimen/ten_dp"
+                    android:gravity="center"
+                    android:padding="@dimen/sixteen_dp"
+                    android:shadowColor="@color/grayColorLite"
+                    android:text="@string/btn_send_otp"
+                    android:textColor="@color/grayColorLite"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/view_number_layout"
+                    tools:targetApi="lollipop" />
+
+            </androidx.cardview.widget.CardView>
+
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <RelativeLayout
+            android:visibility="gone"
+            android:id="@+id/otp_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="29dp"
+            android:layout_marginEnd="16dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <EditText
+                android:id="@+id/digit7"
+                android:layout_width="1dp"
+                android:layout_height="1dp"
+                android:gravity="center"
+                android:inputType="phone"
+                android:maxLength="6" />
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/sixty_dp"
+                android:layout_marginStart="@dimen/fifteen_dp"
+                android:layout_marginEnd="@dimen/fifteen_dp"
+                android:layoutDirection="ltr"
+                android:orientation="horizontal"
+                android:weightSum="6">
+
+                <EditText
+                    android:background="@drawable/otp_background"
+                    android:id="@+id/digit1"
+                    android:layout_width="@dimen/zero_dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/two_dp"
+                    android:layout_weight="1"
+                    android:focusable="false"
+                    android:gravity="center"
+                    android:inputType="phone"
+                    android:maxLength="1"
+                    android:maxLines="1"
+                    android:textColor="@color/textColorDark"
+                    android:textCursorDrawable="@null"
+                    android:textSize="30sp"
+                    android:theme="@style/GoldEditTextStyle"
+                    tools:ignore="Autofill,LabelFor" />
+
+
+                <EditText
+                    android:background="@drawable/otp_background"
+                    android:id="@+id/digit2"
+                    android:layout_width="@dimen/zero_dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/two_dp"
+                    android:layout_weight="1"
+                    android:focusable="false"
+                    android:gravity="center"
+                    android:inputType="phone"
+                    android:maxLength="1"
+                    android:maxLines="1"
+                    android:textColor="@color/textColorDark"
+                    android:textCursorDrawable="@null"
+                    android:textSize="30sp"
+                    android:theme="@style/GoldEditTextStyle"
+                    tools:ignore="Autofill,LabelFor" />
+
+
+                <EditText
+                    android:background="@drawable/otp_background"
+                    android:id="@+id/digit3"
+                    android:layout_width="@dimen/zero_dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/two_dp"
+                    android:layout_weight="1"
+                    android:focusable="false"
+                    android:gravity="center"
+                    android:inputType="phone"
+                    android:maxLength="1"
+                    android:maxLines="1"
+                    android:textColor="@color/textColorDark"
+                    android:textCursorDrawable="@null"
+                    android:textSize="30sp"
+                    android:theme="@style/GoldEditTextStyle"
+                    tools:ignore="Autofill,LabelFor" />
+
+                <EditText
+                    android:background="@drawable/otp_background"
+                    android:id="@+id/digit4"
+                    android:layout_width="@dimen/zero_dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/two_dp"
+                    android:layout_weight="1"
+                    android:focusable="false"
+                    android:gravity="center"
+                    android:inputType="phone"
+                    android:maxLength="1"
+                    android:maxLines="1"
+                    android:textColor="@color/textColorDark"
+                    android:textCursorDrawable="@null"
+                    android:textSize="30sp"
+                    android:theme="@style/GoldEditTextStyle"
+                    tools:ignore="Autofill,LabelFor" />
+
+                <EditText
+                    android:background="@drawable/otp_background"
+                    android:id="@+id/digit5"
+                    android:layout_width="@dimen/zero_dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/two_dp"
+                    android:layout_weight="1"
+                    android:focusable="false"
+                    android:gravity="center"
+                    android:inputType="phone"
+                    android:maxLength="1"
+                    android:maxLines="1"
+                    android:textColor="@color/textColorDark"
+                    android:textCursorDrawable="@null"
+                    android:textSize="30sp"
+                    android:theme="@style/GoldEditTextStyle"
+                    tools:ignore="Autofill,LabelFor" />
+
+                <EditText
+                    android:background="@drawable/otp_background"
+                    android:id="@+id/digit6"
+                    android:layout_width="@dimen/zero_dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/two_dp"
+                    android:layout_weight="1"
+                    android:focusable="false"
+                    android:gravity="center"
+                    android:inputType="phone"
+                    android:maxLength="1"
+                    android:maxLines="1"
+                    android:textColor="@color/textColorDark"
+                    android:textCursorDrawable="@null"
+                    android:textSize="30sp"
+                    android:theme="@style/GoldEditTextStyle"
+                    tools:ignore="Autofill,LabelFor" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/_2_30"
+            android:textColor="@color/gold_300"
+            android:textSize="@dimen/twenty_sp"
+            android:layout_marginTop="@dimen/margin_1x"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/otp_layout" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

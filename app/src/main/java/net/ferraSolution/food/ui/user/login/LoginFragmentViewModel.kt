@@ -73,8 +73,6 @@ class LoginFragmentViewModel(private val auth: FirebaseAuth) : BaseViewModel() {
 
     private fun signInWithPhoneAuthCredential(credential: PhoneAuthCredential, activity: Activity) {
 
-        showLoading.value = true
-
         auth.signInWithCredential(credential)
             .addOnCompleteListener(activity) { task ->
                 showLoading.value = false
@@ -85,9 +83,7 @@ class LoginFragmentViewModel(private val auth: FirebaseAuth) : BaseViewModel() {
 
                     uId.postValue(auth.currentUser?.uid)
 
-                }
-
-                showError.postValue(task.exception?.message)
+                } else showError.postValue(task.exception?.message)
 
             }
     }

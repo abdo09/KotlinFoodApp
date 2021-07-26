@@ -1,4 +1,4 @@
-package com.abdo.baseProject.data.dto
+package net.ferraSolution.food.data.dto
 
 import com.squareup.moshi.Json
 

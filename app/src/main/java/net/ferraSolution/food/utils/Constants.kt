@@ -3,15 +3,16 @@ package net.ferraSolution.food.utils
 import android.annotation.SuppressLint
 import android.content.Context
 import android.provider.Settings
+import com.google.android.gms.maps.model.LatLng
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import net.ferraSolution.food.R
 import net.ferraSolution.food.data.models.AddonModel
+import net.ferraSolution.food.data.models.Address
 import net.ferraSolution.food.data.models.SizeModel
 import net.ferraSolution.food.data.models.UserModel
 import net.ferraSolution.food.di.getSharedPrefs
 import java.lang.reflect.Type
-import java.util.*
 
 
 class Constants {
@@ -92,7 +93,7 @@ class Constants {
         return gson.fromJson<Any>(json, type) as List<*>?
     }
 
-    fun setUser(context: Context, userModel: UserModel) {
+    fun setUser(context: Context, userModel: UserModel?) {
         val gson = Gson()
         val json = gson.toJson(userModel)
         getSharedPrefs(context).edit().putString(context.getString(R.string.pref_user), json).apply()
@@ -103,6 +104,32 @@ class Constants {
         val json = getSharedPrefs(context).getString(context.getString(R.string.pref_user), null)
         val type: Type = object : TypeToken<UserModel?>() {}.type
         return gson.fromJson<Any>(json, type) as UserModel?
+    }
+
+    fun setLatLng(context: Context, latLng: LatLng) {
+        val gson = Gson()
+        val json = gson.toJson(latLng)
+        getSharedPrefs(context).edit().putString(context.getString(R.string.pref_lat_lang), json).apply()
+    }
+
+    fun getLatLng(context: Context): LatLng? {
+        val gson = Gson()
+        val json = getSharedPrefs(context).getString(context.getString(R.string.pref_lat_lang), null)
+        val type: Type = object : TypeToken<LatLng?>() {}.type
+        return gson.fromJson<Any>(json, type) as LatLng?
+    }
+
+    fun setAddress(context: Context, address: Address) {
+        val gson = Gson()
+        val json = gson.toJson(address)
+        getSharedPrefs(context).edit().putString(context.getString(R.string.pref_address), json).apply()
+    }
+
+    fun getAddress(context: Context): Address? {
+        val gson = Gson()
+        val json = getSharedPrefs(context).getString(context.getString(R.string.pref_address), null)
+        val type: Type = object : TypeToken<Address?>() {}.type
+        return gson.fromJson<Any>(json, type) as Address?
     }
 
 }

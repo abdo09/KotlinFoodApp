@@ -113,7 +113,7 @@ class FoodDetailsFragment : BaseSupportFragment(R.layout.fragment_food_details) 
     private val callBack: OnBackPressedCallback = object : OnBackPressedCallback(true) {
         override fun handleOnBackPressed() {
             if (activity is HomeActivity) {
-                Timber.d("${navController.previousBackStackEntry?.destination?.label}")
+                viewModel.addons.postValue(listOf())
                when(navController.previousBackStackEntry?.destination?.label){
                    "fragment_home" -> {
                        navController.navigate(

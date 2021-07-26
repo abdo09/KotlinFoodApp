@@ -23,8 +23,10 @@ import android.view.WindowManager
 import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.annotation.ColorRes
+import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
@@ -41,11 +43,13 @@ import net.ferraSolution.food.R
 import net.ferraSolution.food.data.models.AddonModel
 import net.ferraSolution.food.data.models.BestDealModel
 import net.ferraSolution.food.data.models.SizeModel
+import java.math.RoundingMode
+import java.text.DecimalFormat
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
 
-/*val Int.dp: Int get() = (this * Resources.getSystem().displayMetrics.density + 0.5f).toInt()
+val Int.dp: Int get() = (this * Resources.getSystem().displayMetrics.density + 0.5f).toInt()
 
 val Float.dp: Int get() = (this * Resources.getSystem().displayMetrics.density + 0.5f).toInt()
 
@@ -53,7 +57,7 @@ fun roundOffDecimal(number: Double): Double {
     val df = DecimalFormat("#.##")
     df.roundingMode = RoundingMode.CEILING
     return df.format(number).toDouble()
-}*/
+}
 
 fun Double.formatPrice(): String {
     return String.format(Locale.ENGLISH, "%.2f", this)
@@ -430,7 +434,7 @@ fun EditText.setGoldColorBoarder(field: Int, textInputLayout: TextInputLayout) {
                 textInputLayout.boxStrokeColor =
                     ResourcesCompat.getColor(resources, R.color.gold_500, null)
                 textInputLayout.hint = resources.getString(field)
-                setTextInputLayoutHintColor(textInputLayout, context, R.color.gold_500)
+                setTextInputLayoutHintColor(textInputLayout, context, R.color.gold_300)
             }
         }
 
@@ -500,4 +504,49 @@ fun returnExtrasPrice(
         }
     }
     return price
+}
+
+// Set gender checked
+@RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+fun setChecked(btn1: RelativeLayout, btn2: RelativeLayout, tv1: TextView, tv2: TextView, img1: ImageView, img2: ImageView, isChecked: Boolean, context: Context) {
+    if (isChecked) {
+        btn1.background = ContextCompat.getDrawable(context, R.drawable.boarder_gold500_color)
+        tv1.setHintTextColor(ContextCompat.getColor(context, R.color.gold_300))
+        img1.setImageDrawable(
+            ContextCompat.getDrawable(
+                context,
+                R.drawable.ic_checked_gender
+            )
+        )
+
+        btn2.background =
+            ContextCompat.getDrawable(context, R.drawable.boarder_gray_color)
+        tv2.setHintTextColor(ContextCompat.getColor(context, R.color.grayColor500))
+        img2.setImageDrawable(
+            ContextCompat.getDrawable(
+                context,
+                R.drawable.ic_unchecked_gender
+            )
+        )
+    } else {
+        btn2.background =
+            ContextCompat.getDrawable(context, R.drawable.boarder_gold500_color)
+        tv2.setHintTextColor(ContextCompat.getColor(context, R.color.gold_300))
+        img2.setImageDrawable(
+            ContextCompat.getDrawable(
+                context,
+                R.drawable.ic_checked_gender
+            )
+        )
+
+        btn1.background =
+            ContextCompat.getDrawable(context, R.drawable.boarder_gray_color)
+        tv1.setHintTextColor(ContextCompat.getColor(context, R.color.grayColor500))
+        img1.setImageDrawable(
+            ContextCompat.getDrawable(
+                context,
+                R.drawable.ic_unchecked_gender
+            )
+        )
+    }
 }

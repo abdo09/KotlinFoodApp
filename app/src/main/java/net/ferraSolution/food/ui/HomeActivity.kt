@@ -34,6 +34,11 @@ class HomeActivity : BaseSupportActivity() {
 
         setBottomNavigationVisibility()
 
+        toolbar_layout.go_to_cart_button.setOnClickListener {
+            navController.navigate(R.id.nav_ordersFragment)
+            bottomNavigationView.selectedItemId = R.id.navigation_orders
+        }
+
         FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
             if (task.isSuccessful) {
                 return@OnCompleteListener

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
+import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -13,6 +14,7 @@ import net.ferraSolution.food.data.models.BestDealModel
 import net.ferraSolution.food.data.models.CategoryModel
 import net.ferraSolution.food.data.models.PopularCategoriesResponse
 import net.ferraSolution.food.data.models.UserModel
+import net.ferraSolution.food.ui.HomeActivity
 import net.ferraSolution.food.utils.Constants
 import net.ferraSolution.food.utils.replaceAllId
 import org.koin.android.viewmodel.ext.android.viewModel
@@ -82,7 +84,7 @@ class HomeFragment : BaseSupportFragment(R.layout.fragment_home), HomePageContro
         })
 
         viewModel.userModel.observe(viewLifecycleOwner, {
-            Constants().setUser(requireContext(), it)
+            Constants().setUser(requireContext(), it?: UserModel())
         })
 
     }
@@ -128,7 +130,7 @@ class HomeFragment : BaseSupportFragment(R.layout.fragment_home), HomePageContro
     }
 
     override fun onViewAllCategoriesClickLister() {
-        Toast.makeText(requireContext(), "Moving to categories list", Toast.LENGTH_SHORT).show()
+        //Toast.makeText(requireContext(), "Moving to categories list", Toast.LENGTH_SHORT).show()
     }
 
 

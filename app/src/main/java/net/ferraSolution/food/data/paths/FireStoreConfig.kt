@@ -7,5 +7,6 @@ class FireStoreConfig {
         const val MOSTPOPULAR = "MostPopular"
         const val BESTDEALS = "bestDeals"
         const val USERS = "Users"
+        const val ADDRESS = "address"
     }
 }

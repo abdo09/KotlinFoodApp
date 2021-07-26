@@ -24,9 +24,9 @@ val appModules = module {
     viewModel { FoodsListFragmentViewModel(get(), get(), get(), get(), get(), get(), get(), get()) }
     viewModel { RatingDialogViewModel(get(), get(), get(), get(), get()) }
     viewModel { CartFragmentViewModel(get()) }
-    viewModel { ToolsFragmentViewModel() }
+    viewModel { ToolsFragmentViewModel(get(), get()) }
     viewModel { VerificationViewModel() }
-    viewModel { AddressMapViewModel(get()) }
+    viewModel { AddressMapViewModel(get(), get()) }
 
     factory { AuthRepository(get(), get()) }
     factory { HomeRepository(get(), get()) }
@@ -36,5 +36,6 @@ val appModules = module {
     factory<MenuRoomRepository> { MenuRoomRepositoryImp(get()) }
     factory<UserRoomRepository> { UserRoomRepositoryImp(get()) }
     factory<AddressRepository> { AddressRepositoryImp(get()) }
+    factory<ICloudFunctionsRepository> { ICloudFunctionsRepositoryImp(get()) }
 
 }

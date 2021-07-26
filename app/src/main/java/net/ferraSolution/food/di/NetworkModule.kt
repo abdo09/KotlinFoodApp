@@ -5,6 +5,7 @@ import net.ferraSolution.food.data.client.createHttpClient
 import net.ferraSolution.food.data.client.createRetrofit
 import net.ferraSolution.food.data.client.createWebService
 import net.ferraSolution.food.data.client.AuthInterceptor
+import net.ferraSolution.food.data.services.ICloudFunctionServices
 import net.ferraSolution.food.data.services.UserServices
 import okhttp3.OkHttpClient
 import org.koin.android.ext.koin.androidApplication
@@ -31,5 +32,6 @@ val networkModule = module {
         createRetrofit(httpClient)
     }
     factory { createWebService<UserServices>(get()) }
+    factory { createWebService<ICloudFunctionServices>(get()) }
 }
 

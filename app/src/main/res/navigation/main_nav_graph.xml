@@ -83,12 +83,24 @@
         android:id="@+id/nav_ordersFragment"
         android:name="net.ferraSolution.food.ui.bottomTabs.cart.CartFragment"
         android:label="fragment_orders"
-        tools:layout="@layout/fragment_cart" />
+        tools:layout="@layout/fragment_cart" >
+        <action
+            android:id="@+id/action_nav_ordersFragment_to_nav_address_map_fragment"
+            app:destination="@id/nav_address_map_fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left" />
+    </fragment>
     <fragment
         android:id="@+id/nav_toolsFragment"
         android:name="net.ferraSolution.food.ui.bottomTabs.tools.ToolsFragment"
         android:label="fragment_tools"
-        tools:layout="@layout/fragment_tools" />
+        tools:layout="@layout/fragment_tools" >
+        <action
+            android:id="@+id/action_nav_toolsFragment_to_nav_signInFragment"
+            app:destination="@id/nav_signInFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right" />
+    </fragment>
     <fragment
         android:id="@+id/nav_verificationOtpFragment"
         android:name="net.ferraSolution.food.ui.user.verification.VerificationOtpFragment"
@@ -180,11 +192,22 @@
             android:name="addressId"
             app:argType="string"
             app:nullable="true" />
+        <action
+            android:id="@+id/action_nav_address_map_fragment_to_nav_ordersFragment"
+            app:destination="@id/nav_ordersFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right" />
+        <action
+            android:id="@+id/action_nav_address_map_fragment_to_nav_address_details_bottom_sheet_fragment"
+            app:destination="@id/nav_address_details_bottom_sheet_fragment"
+            app:enterAnim="@anim/fly_in"
+            app:exitAnim="@anim/fly_out"/>
+
     </fragment>
 
     <dialog
         android:id="@+id/nav_rating_dialog_bottom_sheet_fragment"
-        android:name="net.ferraSolution.food.ui.bottomTabs.menu.foodsList.foodDetails.bottomSheet.RatingDialogBottomSheetFragment"
+        android:name="net.ferraSolution.food.ui.bottomSheet.RatingDialogBottomSheetFragment"
         android:label="RatingDialogBottomSheetFragment"
         tools:layout="@layout/fragment_rating_dialog_bottom_sheet">
 
@@ -204,7 +227,7 @@
 
     <dialog
         android:id="@+id/nav_addon_dialog_bottom_sheet_fragment"
-        android:name="net.ferraSolution.food.ui.bottomTabs.menu.foodsList.foodDetails.bottomSheet.AddonBottomSheetFragment"
+        android:name="net.ferraSolution.food.ui.bottomSheet.AddonBottomSheetFragment"
         android:label="AddonDialogBottomSheetFragment"
         tools:layout="@layout/fragment_addon_dialog_bottom_sheet">
 
@@ -227,6 +250,30 @@
 
     </dialog>
 
+    <dialog
+        android:id="@+id/nav_confirmation_bottom_sheet_fragment"
+        android:name="net.ferraSolution.food.ui.bottomSheet.ConfirmationBottomSheetFragment"
+        android:label="ConfirmationBottomSheetFragment"
+        tools:layout="@layout/fragment_confirmation_dialog_bottom_sheet">
+    </dialog>
+
+    <fragment
+        android:id="@+id/nav_address_details_bottom_sheet_fragment"
+        android:name="net.ferraSolution.food.ui.bottomSheet.DetailsFragment"
+        android:label="AddressDetailsBottomSheetFragment"
+        tools:layout="@layout/details_fragment">
+        <action
+            android:id="@+id/action_nav_address_details_bottom_sheet_fragment_to_nav_address_map_fragment"
+            app:destination="@id/nav_address_map_fragment"
+            app:enterAnim="@anim/fly_in"
+            app:exitAnim="@anim/fly_out" />
+        <action
+            android:id="@+id/action_nav_address_details_bottom_sheet_fragment_to_nav_homeFragment"
+            app:destination="@id/nav_homeFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right" />
+    </fragment>
+
     <action
         android:id="@+id/action_nav_rating_dialog_bottom_sheet_fragment"
         app:destination="@id/nav_rating_dialog_bottom_sheet_fragment" />
@@ -234,5 +281,9 @@
     <action
         android:id="@+id/action_nav_addon_dialog_bottom_sheet_fragment"
         app:destination="@id/nav_addon_dialog_bottom_sheet_fragment" />
+
+    <action
+        android:id="@+id/action_nav_confirmation_bottom_sheet_fragment"
+        app:destination="@id/nav_confirmation_bottom_sheet_fragment" />
 
 </navigation>

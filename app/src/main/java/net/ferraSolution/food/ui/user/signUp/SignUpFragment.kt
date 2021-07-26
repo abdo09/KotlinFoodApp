@@ -4,6 +4,8 @@ import android.content.Context
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.View
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
@@ -14,10 +16,9 @@ import net.ferraSolution.food.R
 import net.ferraSolution.food.base.BaseSupportFragment
 import net.ferraSolution.food.data.models.CategoryModel
 import net.ferraSolution.food.data.models.UserModel
-import net.ferraSolution.food.utils.Constants
-import net.ferraSolution.food.utils.setGoldColorBoarder
-import net.ferraSolution.food.utils.setRedBoarder
+import net.ferraSolution.food.utils.*
 import org.koin.android.viewmodel.ext.android.viewModel
+import timber.log.Timber
 
 class SignUpFragment : BaseSupportFragment(R.layout.fragment_signup) {
 
@@ -28,10 +29,9 @@ class SignUpFragment : BaseSupportFragment(R.layout.fragment_signup) {
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setAppBarVisibilityAndTitle(View.GONE, R.string.sign_up)
 
         toolbar_layout.tv_title.text = getString(R.string.sign_up)
-        toolbar_layout.tv_title.setTextColor(Color.parseColor("#856455"))
-
         navigationVisibility = View.GONE
 
         onClick()
@@ -85,17 +85,40 @@ class SignUpFragment : BaseSupportFragment(R.layout.fragment_signup) {
             navController.navigate(SignUpFragmentDirections.actionSignUpFragmentToLoginFragment())
         }
 
+
+
+
+
+
         btn_signUp_male.setOnClickListener {
             if (!isMale) {
                 isMale = true
-                setGenderChecked(isMale, requireContext())
+                setChecked(
+                    btn1 = btn_signUp_male,
+                    btn2 = btn_signUp_female,
+                    tv1 = tv_signUp_male,
+                    tv2 = tv_signUp_female,
+                    img1 = image_male,
+                    img2 = image_female,
+                    isChecked = isMale,
+                    requireContext()
+                )
             }
         }
 
         btn_signUp_female.setOnClickListener {
             if (isMale) {
                 isMale = false
-                setGenderChecked(isMale, requireContext())
+                setChecked(
+                    btn1 = btn_signUp_male,
+                    btn2 = btn_signUp_female,
+                    tv1 = tv_signUp_male,
+                    tv2 = tv_signUp_female,
+                    img1 = image_male,
+                    img2 = image_female,
+                    isChecked = isMale,
+                    requireContext()
+                )
             }
         }
     }
@@ -111,6 +134,26 @@ class SignUpFragment : BaseSupportFragment(R.layout.fragment_signup) {
 
     //ViewModel observer
     private fun viewModelObserver() {
+        ed_signUp_number.addTextChangedListener(object : TextWatcher {
+
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                if (!s.isNullOrEmpty()) {
+                    if (s.take(1).toString().toInt() == 0 && s.length == 10)
+                        toggleKeyboard(requireContext(), false)
+                    else if (s.take(1).toString().toInt() != 0 && s.length == 9) {
+                        toggleKeyboard(requireContext(), false)
+                    }
+                }
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+
+            }
+
+        })
+
         viewModel.isUserCreated.observe(viewLifecycleOwner) { userCreated ->
 
             if (userCreated) {
@@ -120,7 +163,7 @@ class SignUpFragment : BaseSupportFragment(R.layout.fragment_signup) {
                         uId ?: ""
                     )
                 }
-
+                uploadUserInfo()
             }
         }
 
@@ -140,68 +183,32 @@ class SignUpFragment : BaseSupportFragment(R.layout.fragment_signup) {
         ed_signUp_password.setText("")
     }
 
-    // Set gender checked
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-    private fun setGenderChecked(isMale: Boolean, context: Context) {
-        if (isMale) {
-            btn_signUp_male.background =
-                ContextCompat.getDrawable(context, R.drawable.boarder_gold500_color)
-            tv_signUp_male.setHintTextColor(ContextCompat.getColor(context, R.color.orange_700))
-            image_male.setImageDrawable(
-                ContextCompat.getDrawable(
-                    context,
-                    R.drawable.ic_checked_gender
-                )
-            )
-
-            btn_signUp_female.background =
-                ContextCompat.getDrawable(context, R.drawable.boarder_gray_color)
-            tv_signUp_female.setHintTextColor(ContextCompat.getColor(context, R.color.grayColor500))
-            image_female.setImageDrawable(
-                ContextCompat.getDrawable(
-                    requireContext(),
-                    R.drawable.ic_unchecked_gender
-                )
-            )
-        } else {
-            btn_signUp_female.background =
-                ContextCompat.getDrawable(context, R.drawable.boarder_gold500_color)
-            tv_signUp_female.setHintTextColor(ContextCompat.getColor(context, R.color.orange_700))
-            image_female.setImageDrawable(
-                ContextCompat.getDrawable(
-                    context,
-                    R.drawable.ic_checked_gender
-                )
-            )
-
-            btn_signUp_male.background =
-                ContextCompat.getDrawable(context, R.drawable.boarder_gray_color)
-            tv_signUp_male.setHintTextColor(ContextCompat.getColor(context, R.color.grayColor500))
-            image_male.setImageDrawable(
-                ContextCompat.getDrawable(
-                    requireContext(),
-                    R.drawable.ic_unchecked_gender
-                )
-            )
-        }
-    }
-
     private fun uploadUserInfo() {
         val uId = Constants().getUid(requireContext())
         val firstName = ed_signUp_firstName.text.toString()
         val lastName = ed_signUp_lastName.text.toString()
         val email = ed_signUp_email.text.toString()
-        val phoneNumber = ed_signUp_number.text.toString()
+        var phoneNumber = ed_signUp_number.text.toString()
+        if (phoneNumber.take(1).toInt() == 0 && phoneNumber.length == 10)
+            phoneNumber = "+${code_picker_signUp.selectedCountryCode}${phoneNumber.drop(1)}"
+        else if (phoneNumber.take(1).toInt() != 0 && phoneNumber.length == 9)
+            phoneNumber = "+${code_picker_signUp.selectedCountryCode}$phoneNumber"
+        else
+            CookieBarConfig(
+                requireActivity()
+            ).showDefaultErrorCookie("The number you entered is not correct")
 
         val user = UserModel()
 
         user.apply {
-            this.uid = uId?: ""
+            this.uid = uId ?: ""
             this.firstName = firstName
             this.lastName = lastName
             this.email = email
             this.phoneNumber = phoneNumber
         }
+
+        Timber.d("${user.phoneNumber}")
 
         viewModel.uploadUserInfo(user)
 

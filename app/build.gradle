@@ -240,6 +240,9 @@ dependencies {
     api 'com.google.android.gms:play-services-basement:17.4.0'
 
     api 'com.google.android.libraries.places:places:2.4.0'
+
+    implementation 'com.braintreepayments.api:card:4.3.0'
+
 }
 
 apply plugin: 'com.google.gms.google-services'

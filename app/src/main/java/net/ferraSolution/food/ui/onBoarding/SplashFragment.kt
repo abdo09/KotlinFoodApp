@@ -6,8 +6,10 @@ import android.view.View
 import android.view.animation.DecelerateInterpolator
 import android.widget.ImageView
 import androidx.core.view.postDelayed
+import kotlinx.android.synthetic.main.activity_home.*
 import net.ferraSolution.food.R
 import net.ferraSolution.food.base.BaseSupportFragment
+import net.ferraSolution.food.ui.HomeActivity
 import net.ferraSolution.food.ui.user.login.LoginFragmentViewModel
 
 import net.ferraSolution.food.utils.Constants
@@ -48,9 +50,9 @@ class SplashFragment : BaseSupportFragment(R.layout.fragment_splash) {
 
     private fun navigateToNextDestination() {
         if (Constants().getUid(requireContext()).isNullOrEmpty()) {
-            navController.navigate(R.id.action_splash_fragment_to_loginFragment)
+            navController.navigate(SplashFragmentDirections.actionSplashFragmentToLoginFragment())
         } else {
-            navController.navigate(R.id.action_splashFragment_to_homeFragment)
+            navController.navigate(SplashFragmentDirections.actionSplashFragmentToHomeFragment())
         }
     }
 

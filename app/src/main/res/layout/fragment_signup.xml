@@ -159,6 +159,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:digits="0123456789"
+                        android:textColor="@color/grayColorLite"
+                        android:textCursorDrawable="@drawable/cursor_color"
                         android:inputType="number"
                         android:maxLength="10" />
 
@@ -166,38 +168,6 @@
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <!--<com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/ip_signUp_number"
-                style="@style/TextInputLayoutGoldColor"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/eighteen_dp"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
-                android:hint="@string/number"
-                android:textColor="@color/grayColorLite"
-                android:textColorHint="@color/gold_300"
-                app:boxCornerRadiusBottomEnd="@dimen/twelve_dp"
-                app:boxCornerRadiusBottomStart="@dimen/twelve_dp"
-                app:boxCornerRadiusTopEnd="@dimen/twelve_dp"
-                app:boxCornerRadiusTopStart="@dimen/twelve_dp"
-                app:hintTextColor="@color/gold_300"
-                app:layout_constraintBottom_toTopOf="@+id/ip_signUp_password"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/ip_signUp_email">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/ed_signUp_number"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/grayColorLite"
-                    android:textCursorDrawable="@drawable/cursor_color"
-                    android:textSize="16sp" />
-
-            </com.google.android.material.textfield.TextInputLayout>-->
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/ip_signUp_password"
@@ -372,22 +342,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/transparent"
-        android:padding="@dimen/five_dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="@dimen/ten_dp"
-            app:cardElevation="@dimen/one_dp">
-
-            <include
-                android:id="@+id/toolbar_layout"
-                layout="@layout/toolbar" />
-
-        </androidx.cardview.widget.CardView>
+        <include
+            android:id="@+id/toolbar_layout"
+            layout="@layout/toolbar" />
 
     </com.google.android.material.appbar.AppBarLayout>
 

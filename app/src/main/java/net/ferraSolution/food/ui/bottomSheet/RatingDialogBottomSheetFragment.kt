@@ -1,4 +1,4 @@
-package net.ferraSolution.food.ui.bottomTabs.menu.foodsList.foodDetails.bottomSheet
+package net.ferraSolution.food.ui.bottomSheet
 
 
 import android.os.Bundle

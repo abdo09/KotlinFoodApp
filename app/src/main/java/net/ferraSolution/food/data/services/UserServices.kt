@@ -1,6 +1,6 @@
 package net.ferraSolution.food.data.services
 
-import com.abdo.baseProject.data.dto.SendCodeResponse
+import net.ferraSolution.food.data.dto.SendCodeResponse
 import net.ferraSolution.food.data.dto.FetchLocationResponse
 import retrofit2.http.*
 

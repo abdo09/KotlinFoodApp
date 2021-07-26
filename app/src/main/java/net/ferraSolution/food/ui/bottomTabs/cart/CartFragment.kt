@@ -46,6 +46,15 @@ class CartFragment : BaseSupportFragment(R.layout.fragment_cart) {
         cartAdapter.setOnItemClickListener {cartList ->
             calculateTotalPrice(cartAdapter.differ.currentList)
         }
+
+        shop_now_button.setOnClickListener {
+            navController.navigate(R.id.nav_menuFragment)
+            (activity as HomeActivity).bottomNavigationView.selectedItemId = R.id.navigation_menu
+        }
+
+        btn_proceed_to_check_out.setOnClickListener {
+            navController.navigate(CartFragmentDirections.actionNavOrdersFragmentToNavAddressMapFragment(""))
+        }
     }
 
     private fun setupRecyclerView() {
@@ -65,6 +74,7 @@ class CartFragment : BaseSupportFragment(R.layout.fragment_cart) {
                     viewModel.getAllCart(Constants().getUid(requireContext()))
                 }
             }
+
         }
 
         val itemTouchHelper = ItemTouchHelper(swipeHandler)

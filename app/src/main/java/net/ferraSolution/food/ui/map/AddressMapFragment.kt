@@ -75,13 +75,11 @@ class AddressMapFragment : BaseSupportFragment(R.layout.address_map_fragment), O
     override val viewModel: AddressMapViewModel by viewModel()
 
     val args: AddressMapFragmentArgs by navArgs()
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.address_map_fragment, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setAppBarVisibilityAndTitle(View.VISIBLE, R.string.choose_your_location)
+        navigationVisibility = View.GONE
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
         initViews()
@@ -93,13 +91,13 @@ class AddressMapFragment : BaseSupportFragment(R.layout.address_map_fragment), O
     private fun initViews() {
         add_address_location.setOnClickListener {
 //            if (currentPlace != null)
-            Timber.d("$currentPlace")
+            navController.navigate(AddressMapFragmentDirections.actionNavAddressDetailsBottomSheetFragment())
             //navController.navigate(AddressMapFragmentDirections.actionAddressMapFragmentToAddressDetailFragment(currentPlace, args.addressId))
             //          else
             //            viewModel.showInfo.postValue(getString(R.string.please_select_alocation))
         }
 
-        search_address_location.threshold = 3
+        /*search_address_location.threshold = 3
         search_address_location.setAdapter(adapter)
         search_address_location.setBackgroundResource(R.color.design_default_color_on_primary)
 
@@ -116,13 +114,13 @@ class AddressMapFragment : BaseSupportFragment(R.layout.address_map_fragment), O
             val keyboardHide = activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             keyboardHide.hideSoftInputFromWindow(view.windowToken, 0)
 
-        }
+        }*/
 
         viewModel.locationResult.observe(viewLifecycleOwner, Observer { locationResponse ->
             context?.let { it1 -> toggleKeyboard(it1, false) }
             locationResponse?.let {
                 it.results.firstOrNull()?.let { result ->
-                    getPositionDetailRequest(result.placeId, true)
+                    //getPositionDetailRequest(result.placeId, true)
                     Timber.d(result.formattedAddress)
                 }
             }
@@ -267,8 +265,7 @@ class AddressMapFragment : BaseSupportFragment(R.layout.address_map_fragment), O
 
 
     private fun getPositionDetail(position: String) {
-        if(isAdded)
-        viewModel.getPlaceDetails(getString(R.string.google_maps_key_http), position)
+        //if(isAdded) viewModel.getPlaceDetails(getString(R.string.google_maps_key_http), position)
     }
 
     private fun getPositionDetailRequest(position: String, isLngLat: Boolean = false) {
@@ -298,7 +295,7 @@ class AddressMapFragment : BaseSupportFragment(R.layout.address_map_fragment), O
 
     private fun setPlaceAsSelected(response: FetchPlaceResponse, isLngLat: Boolean) {
         Timber.d("place $response ")
-        view?.findViewById<AutoCompleteTextView>(R.id.search_address_location)?.setText(response.place.address)
+        ///view?.findViewById<AutoCompleteTextView>(R.id.search_address_location)?.setText(response.place.address)
         currentPlace = response.place
         Timber.d("currentPlace ${response.place} ")
         currentPlace?.latLng?.let {
@@ -339,6 +336,7 @@ class AddressMapFragment : BaseSupportFragment(R.layout.address_map_fragment), O
 
     private fun addMarkerToLocation(currentLngLat: LatLng) {
         Timber.d("address - > $currentLngLat addingg marker")
+        Constants().setLatLng(requireContext(), currentLngLat)
 
         this.currentLngLat = currentLngLat
 
