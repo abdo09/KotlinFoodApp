@@ -26,7 +26,7 @@ val appModules = module {
     viewModel { CartFragmentViewModel(get()) }
     viewModel { ToolsFragmentViewModel(get(), get()) }
     viewModel { VerificationViewModel() }
-    viewModel { AddressMapViewModel(get(), get()) }
+    viewModel { AddressMapViewModel(get(), get(), get(), get()) }
 
     factory { AuthRepository(get(), get()) }
     factory { HomeRepository(get(), get()) }

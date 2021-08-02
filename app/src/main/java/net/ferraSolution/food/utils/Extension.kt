@@ -43,11 +43,14 @@ import net.ferraSolution.food.R
 import net.ferraSolution.food.data.models.AddonModel
 import net.ferraSolution.food.data.models.BestDealModel
 import net.ferraSolution.food.data.models.SizeModel
+import java.lang.StringBuilder
 import java.math.RoundingMode
 import java.text.DecimalFormat
 import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
+import kotlin.math.abs
+import kotlin.random.Random
 
 val Int.dp: Int get() = (this * Resources.getSystem().displayMetrics.density + 0.5f).toInt()
 
@@ -549,4 +552,11 @@ fun setChecked(btn1: RelativeLayout, btn2: RelativeLayout, tv1: TextView, tv2: T
             )
         )
     }
+}
+
+fun createOrderNumber(): String {
+    return StringBuilder()
+        .append(System.currentTimeMillis())
+        .append(abs(Random.nextInt()))
+        .toString()
 }

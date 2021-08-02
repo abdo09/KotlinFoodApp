@@ -43,7 +43,7 @@ class CartFragment : BaseSupportFragment(R.layout.fragment_cart) {
     }
 
     private fun onClickListener() {
-        cartAdapter.setOnItemClickListener {cartList ->
+        cartAdapter.setOnItemClickListener {
             calculateTotalPrice(cartAdapter.differ.currentList)
         }
 
@@ -119,7 +119,7 @@ class CartFragment : BaseSupportFragment(R.layout.fragment_cart) {
 
     }
 
-    private fun calculateTotalPrice(cartList: List<OrderModel.CartItem>){
+    private fun calculateTotalPrice(cartList: List<OrderModel.CartItem>): String{
         var totalPrice = 0.0
 
         cartList.forEach { cartItem ->
@@ -128,6 +128,7 @@ class CartFragment : BaseSupportFragment(R.layout.fragment_cart) {
                 ?: 0.0).times(cartItem.foodQuantity.toString().toInt())
             tv_cart_price.text = totalPrice.formatPrice()
         }
+        return totalPrice.formatPrice()
     }
 
 }

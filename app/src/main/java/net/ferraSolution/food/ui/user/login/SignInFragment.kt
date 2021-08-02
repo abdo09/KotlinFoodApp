@@ -228,8 +228,8 @@ class SignInFragment : BaseSupportFragment(R.layout.fragment_sign_in), View.OnCl
                 if (isEmailEntryValidated(ed_login_email, ed_login_password, ip_login_password)) {
 
                     viewModel.signInUserWithEmail(
-                        ed_login_email.text.toString(),
-                        ed_login_password.text.toString()
+                        ed_login_email.text.toString().trim(),
+                        ed_login_password.text.toString().trim()
                     )
 
                 }

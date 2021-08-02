@@ -8,5 +8,6 @@ class FireStoreConfig {
         const val BESTDEALS = "bestDeals"
         const val USERS = "Users"
         const val ADDRESS = "address"
+        const val ORDERS = "Orders"
     }
 }

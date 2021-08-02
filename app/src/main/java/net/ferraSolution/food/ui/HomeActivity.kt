@@ -3,7 +3,6 @@ package net.ferraSolution.food.ui
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import com.google.android.gms.tasks.OnCompleteListener
@@ -19,7 +18,6 @@ import net.ferraSolution.food.utils.Constants
 import net.ferraSolution.food.utils.fadeIn
 import net.ferraSolution.food.utils.fadeOut
 import org.koin.android.ext.android.inject
-import timber.log.Timber
 
 class HomeActivity : BaseSupportActivity() {
     private val foodsListFragmentViewModel: FoodsListFragmentViewModel by inject()
@@ -35,7 +33,7 @@ class HomeActivity : BaseSupportActivity() {
         setBottomNavigationVisibility()
 
         toolbar_layout.go_to_cart_button.setOnClickListener {
-            navController.navigate(R.id.nav_ordersFragment)
+            navController.navigate(R.id.nav_cart_fragment)
             bottomNavigationView.selectedItemId = R.id.navigation_orders
         }
 
@@ -67,7 +65,7 @@ class HomeActivity : BaseSupportActivity() {
             R.id.nav_menuFragment -> {
                 bottom_app_bar.fadeIn(250, View.VISIBLE)
             }
-            R.id.nav_ordersFragment -> {
+            R.id.nav_cart_fragment -> {
                 bottom_app_bar.fadeIn(250, View.VISIBLE)
             }
             R.id.nav_toolsFragment -> {
@@ -122,7 +120,7 @@ class HomeActivity : BaseSupportActivity() {
                 }
 
                 R.id.navigation_orders -> {
-                    findNavController(R.id.foodNavHostFragment).navigate(R.id.nav_ordersFragment)
+                    findNavController(R.id.foodNavHostFragment).navigate(R.id.nav_cart_fragment)
                     return@OnNavigationItemSelectedListener true
                 }
 

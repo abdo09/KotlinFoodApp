@@ -16,6 +16,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
@@ -39,6 +40,7 @@ import net.ferraSolution.food.R
 import kotlinx.android.synthetic.main.address_map_fragment.*
 import net.ferraSolution.food.base.BaseSupportFragment
 import net.ferraSolution.food.data.client.network.FetchAddressIntentService
+import net.ferraSolution.food.ui.HomeActivity
 import net.ferraSolution.food.utils.*
 import org.koin.android.viewmodel.ext.android.viewModel
 import timber.log.Timber
@@ -86,12 +88,13 @@ class AddressMapFragment : BaseSupportFragment(R.layout.address_map_fragment), O
         if (!Places.isInitialized()) {
             Places.initialize(requireContext(), getString(R.string.google_maps_key))
         }
+        addCallBackToExit()
     }
 
     private fun initViews() {
         add_address_location.setOnClickListener {
 //            if (currentPlace != null)
-            navController.navigate(AddressMapFragmentDirections.actionNavAddressDetailsBottomSheetFragment())
+            navController.navigate(AddressMapFragmentDirections.actionNavAddressMapFragmentToNavAddressDetailsBottomSheetFragment())
             //navController.navigate(AddressMapFragmentDirections.actionAddressMapFragmentToAddressDetailFragment(currentPlace, args.addressId))
             //          else
             //            viewModel.showInfo.postValue(getString(R.string.please_select_alocation))
@@ -135,6 +138,19 @@ class AddressMapFragment : BaseSupportFragment(R.layout.address_map_fragment), O
 
     }
 
+    private fun addCallBackToExit() {
+        activity?.onBackPressedDispatcher?.addCallback(viewLifecycleOwner, callBack)
+    }
+
+
+    private val callBack: OnBackPressedCallback = object : OnBackPressedCallback(true) {
+        override fun handleOnBackPressed() {
+            if (activity is HomeActivity) {
+                navController.navigate(AddressMapFragmentDirections.actionNavAddressMapFragmentToNavCartFragment())
+            }
+        }
+
+    }
 
     override fun onMapReady(googleMap: GoogleMap) {
         Timber.d("address - > on map readt ")

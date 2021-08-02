@@ -228,7 +228,7 @@
     </LinearLayout>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/add_address_location"
+        android:id="@+id/place_order"
         style="@style/GradientButtonRounded"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

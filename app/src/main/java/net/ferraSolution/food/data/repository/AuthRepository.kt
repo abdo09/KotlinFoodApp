@@ -63,6 +63,12 @@ class AuthRepository(private val database: FirebaseDatabase, private var auth: F
         else null
     }
 
+    fun orders() : DatabaseReference? {
+        return if (isUserLogged())
+            database.getReference(FireStoreConfig.ORDERS)
+        else null
+    }
+
     fun isUserLogged(): Boolean {
         Timber.d("auth.currentUser ${auth.currentUser?.uid}  ${auth.currentUser} ")
         return auth.currentUser != null

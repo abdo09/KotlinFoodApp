@@ -9,15 +9,15 @@ import net.ferraSolution.food.data.models.OrderModel.CartItem.Companion.TABLE_NA
 @SuppressLint("ParcelCreator")
 @Parcelize
 data class OrderModel(
-    var cartItemList: List<CartItem?>? = listOf(),
+    var cartItemList: List<CartItem>? = listOf(),
     var cod: Boolean? = false, // true
     var comment: String? = "",
     var discount: Int? = 0, // 0
-    var finalPayment: Int? = 0, // 9
+    var finalPayment: Double? = 0.0, // 9
     var lat: Double? = 0.0, // 30.0700718
     var lng: Double? = 0.0, // 31.3443691
     var shippingAddress: String? = "", // 30.0700718/31.3443691Makrem Ebeid Ext, Masaken Al Mohandesin, Nasr City, Cairo Governorate, Egypt
-    var totalPayment: Int? = 0, // 9
+    var totalPayment: Double? = 0.0, // 9
     var transactionId: String? = "", // Cash On Delivery
     var userId: String? = "", // 0adQGcc5Eteo6OCIQOqYNfBKxbk1
     var userPhone: String? = "", // +201148018005
