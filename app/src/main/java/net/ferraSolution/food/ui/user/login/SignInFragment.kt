@@ -21,6 +21,7 @@ import net.ferraSolution.food.base.BaseSupportFragment
 import net.ferraSolution.food.ui.HomeActivity
 import net.ferraSolution.food.utils.*
 import org.koin.android.viewmodel.ext.android.viewModel
+import timber.log.Timber
 import java.text.DecimalFormat
 import java.text.NumberFormat
 
@@ -150,8 +151,15 @@ class SignInFragment : BaseSupportFragment(R.layout.fragment_sign_in), View.OnCl
         viewModel.loginByPhoneIsSuccessful.observe(viewLifecycleOwner, { isSuccessful ->
 
             if (isSuccessful) {
+                viewModel.getUserInfo(Constants().getUid(requireContext()))
                 navController.navigate(R.id.action_loginFragment_to_homeFragment)
             }
+
+        })
+
+        viewModel.userModel.observe(viewLifecycleOwner, { isSuccessful ->
+
+            Timber.d(isSuccessful.uid)
 
         })
     }

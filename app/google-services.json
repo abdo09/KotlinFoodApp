@@ -15,16 +15,24 @@
       },
       "oauth_client": [
         {
+          "client_id": "506411955069-o5tnlieoikom7499s2204287r8e7tihc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ferra.ferrataga",
+            "certificate_hash": "017e6855eb4c289e97193c45e9814ef1f65635ea"
+          }
+        },
+        {
           "client_id": "506411955069-2g87353uipl84sj68e7r4lcvjrq22ept.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC6UCEcBh69s_oiEsmmXxcQ-ZhQKjNMgLM"
+          "current_key": "AIzaSyBMDoryFL2Ii6Q7uo4kJzoq32WCeqEeeHc"
         },
         {
-          "current_key": "AIzaSyBMDoryFL2Ii6Q7uo4kJzoq32WCeqEeeHc"
+          "current_key": "AIzaSyC6UCEcBh69s_oiEsmmXxcQ-ZhQKjNMgLM"
         }
       ],
       "services": {
@@ -53,10 +61,10 @@
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC6UCEcBh69s_oiEsmmXxcQ-ZhQKjNMgLM"
+          "current_key": "AIzaSyBMDoryFL2Ii6Q7uo4kJzoq32WCeqEeeHc"
         },
         {
-          "current_key": "AIzaSyBMDoryFL2Ii6Q7uo4kJzoq32WCeqEeeHc"
+          "current_key": "AIzaSyC6UCEcBh69s_oiEsmmXxcQ-ZhQKjNMgLM"
         }
       ],
       "services": {
@@ -85,10 +93,10 @@
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC6UCEcBh69s_oiEsmmXxcQ-ZhQKjNMgLM"
+          "current_key": "AIzaSyBMDoryFL2Ii6Q7uo4kJzoq32WCeqEeeHc"
         },
         {
-          "current_key": "AIzaSyBMDoryFL2Ii6Q7uo4kJzoq32WCeqEeeHc"
+          "current_key": "AIzaSyC6UCEcBh69s_oiEsmmXxcQ-ZhQKjNMgLM"
         }
       ],
       "services": {
@@ -117,10 +125,10 @@
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC6UCEcBh69s_oiEsmmXxcQ-ZhQKjNMgLM"
+          "current_key": "AIzaSyBMDoryFL2Ii6Q7uo4kJzoq32WCeqEeeHc"
         },
         {
-          "current_key": "AIzaSyBMDoryFL2Ii6Q7uo4kJzoq32WCeqEeeHc"
+          "current_key": "AIzaSyC6UCEcBh69s_oiEsmmXxcQ-ZhQKjNMgLM"
         }
       ],
       "services": {
@@ -149,10 +157,10 @@
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC6UCEcBh69s_oiEsmmXxcQ-ZhQKjNMgLM"
+          "current_key": "AIzaSyBMDoryFL2Ii6Q7uo4kJzoq32WCeqEeeHc"
         },
         {
-          "current_key": "AIzaSyBMDoryFL2Ii6Q7uo4kJzoq32WCeqEeeHc"
+          "current_key": "AIzaSyC6UCEcBh69s_oiEsmmXxcQ-ZhQKjNMgLM"
         }
       ],
       "services": {
@@ -175,16 +183,24 @@
       },
       "oauth_client": [
         {
+          "client_id": "506411955069-vf3f2bei7aim2jm62kirvtf0llml2ep2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "net.ferraSolution.food",
+            "certificate_hash": "017e6855eb4c289e97193c45e9814ef1f65635ea"
+          }
+        },
+        {
           "client_id": "506411955069-2g87353uipl84sj68e7r4lcvjrq22ept.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC6UCEcBh69s_oiEsmmXxcQ-ZhQKjNMgLM"
+          "current_key": "AIzaSyBMDoryFL2Ii6Q7uo4kJzoq32WCeqEeeHc"
         },
         {
-          "current_key": "AIzaSyBMDoryFL2Ii6Q7uo4kJzoq32WCeqEeeHc"
+          "current_key": "AIzaSyC6UCEcBh69s_oiEsmmXxcQ-ZhQKjNMgLM"
         }
       ],
       "services": {
