@@ -434,18 +434,24 @@ fun EditText.setGoldColorBoarder(field: Int, textInputLayout: TextInputLayout) {
             if (s?.isEmpty() == true) {
                 textInputLayout.setRedBoarder(field)
             } else {
-                textInputLayout.boxStrokeColor =
-                    ResourcesCompat.getColor(resources, R.color.gold_500, null)
-                textInputLayout.hint = resources.getString(field)
-                setTextInputLayoutHintColor(textInputLayout, context, R.color.gold_300)
+                textInputLayout.setBoarderGoldColor(field)
             }
         }
 
         override fun afterTextChanged(s: Editable?) {
-
+            if (s?.isEmpty() == true) {
+                textInputLayout.setBoarderGoldColor(field)
+            }
         }
 
     })
+}
+
+fun TextInputLayout.setBoarderGoldColor(field: Int){
+    this.boxStrokeColor =
+        ResourcesCompat.getColor(resources, R.color.gold_500, null)
+    this.hint = resources.getString(field)
+    setTextInputLayoutHintColor(this, context, R.color.gold_300)
 }
 
 fun Int.dp(): Int {

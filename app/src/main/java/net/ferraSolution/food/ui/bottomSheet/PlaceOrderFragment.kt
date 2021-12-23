@@ -148,25 +148,18 @@ class PlaceOrderFragment : BaseSupportFragment(R.layout.details_fragment) {
 
     //Check fields are validated
     private fun isEntriesValidated(): Boolean {
-        when {
-            ed_address_details_city.text.toString().isEmpty() -> {
-                ip_address_details_city.setRedBoarder(R.string.city)
-                return false
-            }
-            ed_address_details_street.text.toString().isEmpty() -> {
-                ip_address_details_street.setRedBoarder(R.string.street)
-                return false
-            }
-            ed_address_details_district.text.toString().isEmpty() -> {
-                ip_address_details_district.setRedBoarder(R.string.district)
-                return false
-            }
-            ed_address_details_shipping_building_no.text.toString().isEmpty() -> {
-                ip_address_details_shipping_address_details.setRedBoarder(R.string.shipping_address_details)
-                return false
-            }
-            else -> return true
-        }
+
+        val city = ed_address_details_city.text.toString()
+        val street = ed_address_details_street.text.toString()
+        val district = ed_address_details_district.text.toString()
+        val buildingNO = ed_address_details_shipping_building_no.text.toString()
+
+        if (city.isEmpty()) ip_address_details_city.setRedBoarder(R.string.city)
+        if (street.isEmpty()) ip_address_details_street.setRedBoarder(R.string.street)
+        if (district.isEmpty()) ip_address_details_district.setRedBoarder(R.string.district)
+        if (buildingNO.isEmpty()) ip_address_details_shipping_address_details.setRedBoarder(R.string.shipping_address_details)
+
+        return (city.isNotEmpty() && street.isNotEmpty() && district.isNotEmpty() && buildingNO.isNotEmpty())
     }
 
     //Set default boarder

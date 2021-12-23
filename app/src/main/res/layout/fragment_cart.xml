@@ -84,8 +84,6 @@
                 android:id="@+id/rv_cart"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:clipToPadding="false"
-                android:paddingBottom="@dimen/margin_1x"
                 tools:listitem="@layout/cart_item" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
