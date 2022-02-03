@@ -3,9 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/boarder_gray_background.xml" value="0.38958333333333334" />
+        <entry key="app/src/main/res/drawable/bottombar_tab_color.xml" value="0.3351851851851852" />
+        <entry key="app/src/main/res/drawable/rounded_green_dialog_corner.xml" value="0.32222222222222224" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.25" />
         <entry key="app/src/main/res/layout/cart_item.xml" value="0.21203703703703702" />
         <entry key="app/src/main/res/layout/details_fragment.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_addon_dialog_bottom_sheet.xml" value="0.3734375" />
         <entry key="app/src/main/res/layout/fragment_cart.xml" value="0.21203703703703702" />
+        <entry key="app/src/main/res/layout/fragment_foods.xml" value="0.3734375" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.3734375" />
+        <entry key="app/src/main/res/layout/fragment_menu.xml" value="0.3734375" />
       </map>
     </option>
   </component>

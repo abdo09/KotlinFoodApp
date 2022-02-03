@@ -1,9 +1,9 @@
 package net.ferraSolution.food.data.dao
 
-import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Update
+import androidx.room.Delete
 
 /*
  * Copyright (C)   The Android Open Source Project

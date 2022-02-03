@@ -45,11 +45,11 @@ class HomeActivity : BaseSupportActivity() {
 
         foodsListFragmentViewModel.launch {
             foodsListFragmentViewModel.countItemInCart(Constants().getUid(this@HomeActivity) ?: "")
-                .observe(this@HomeActivity, {
+                .observe(this@HomeActivity) {
                     if (it ?: 0 > 0) {
-                        setCartCount(it?: 0, View.VISIBLE)
+                        setCartCount(it ?: 0, View.VISIBLE)
                     } else setCartCount(0, View.GONE)
-                })
+                }
         }
 
     }

@@ -88,11 +88,9 @@ fun Activity.navigationBarAndStatusBarColor(
     @ColorRes navigationColor: Int
 ) {
     val window: Window = this.window
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-        window.statusBarColor = ContextCompat.getColor(this, statusColor)
-        window.navigationBarColor = ContextCompat.getColor(this, navigationColor)
-    }
+    window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+    window.statusBarColor = ContextCompat.getColor(this, statusColor)
+    window.navigationBarColor = ContextCompat.getColor(this, navigationColor)
 }
 
 private fun getSimpleDateFormat(): SimpleDateFormat {
