@@ -4,6 +4,8 @@
     android:id="@+id/car_item"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingStart="@dimen/eighty_dp"
+    android:paddingEnd="@dimen/eighty_dp"
     android:clickable="true"
     android:focusable="true"
     app:cardCornerRadius="@dimen/cardView_radius_main"

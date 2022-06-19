@@ -6,21 +6,25 @@ package net.ferraSolution.food.ui.bottomTabs.home.models
 
 import android.annotation.SuppressLint
 import android.view.View
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.airbnb.epoxy.*
 import kotlinx.coroutines.*
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.flow
 import net.ferraSolution.food.R
 import net.ferraSolution.food.data.models.BestDealModel
 import net.ferraSolution.food.ui.progress.CirclePagerIndicatorDecoration
+import timber.log.Timber
 import kotlin.coroutines.CoroutineContext
 
 @SuppressLint("NonConstantResourceId")
 @EpoxyModelClass(layout = R.layout.carousel_slider)
-abstract class SliderCarouselModel : EpoxyModelWithHolder<SliderCarouselModel.Holder>(), CoroutineScope {
+abstract class SliderCarouselModel(val sliderPosition: MutableLiveData<Int>) : EpoxyModelWithHolder<SliderCarouselModel.Holder>(), CoroutineScope {
 
     private val job = Job()
 
@@ -31,9 +35,9 @@ abstract class SliderCarouselModel : EpoxyModelWithHolder<SliderCarouselModel.Ho
         flow {
             var x = 0
             do {
-                delay(delay)
                 emit(x)
                 x++
+                delay(delay)
             } while (x < 1000)
         }
     }
@@ -52,8 +56,9 @@ abstract class SliderCarouselModel : EpoxyModelWithHolder<SliderCarouselModel.Ho
             (layoutManager as LinearLayoutManager).stackFromEnd = true
             withModels {
                 imageList.forEachIndexed { index, image ->
+                    Timber.d("The image is ${image.name}")
                     SliderImageModel_()
-                        .id(index)
+                        .id("SliderImageModel_$index")
                         .onImageClickedItemListener { model, parentView, clickedView, position ->
                             onViewAllPromotionListener?.onClick(model, parentView.carItem, clickedView, position)
                         }
@@ -94,6 +99,7 @@ abstract class SliderCarouselModel : EpoxyModelWithHolder<SliderCarouselModel.Ho
         launch {
             withContext(Dispatchers.Main) {
                 slidingFlow.collect {
+                    sliderPosition.postValue(it % listSize)
                     carousel.smoothScrollToPosition(it % listSize)
                 }
             }

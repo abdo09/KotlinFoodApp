@@ -16,7 +16,7 @@ import net.ferraSolution.food.data.models.UserModel
         CategoryModel::class,
         UserModel::class,
         OrderModel.CartItem::class,
-    ], version = 6, exportSchema = false
+    ], version = 7, exportSchema = false
 )
 @TypeConverters(Converters::class)
 abstract class FerraFoodDB : RoomDatabase() {

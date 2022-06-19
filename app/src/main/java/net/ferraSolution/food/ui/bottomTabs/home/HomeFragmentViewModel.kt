@@ -28,6 +28,7 @@ open class HomeFragmentViewModel(
     var userModel: MutableLiveData<UserModel> = MutableLiveData()
     var food: MutableLiveData<Foods> = MutableLiveData()
     var foodLoaded: MutableLiveData<Boolean> = MutableLiveData()
+    var sliderPosition = MutableLiveData<Int>()
 
     var allCategories: MutableLiveData<ArrayList<CategoryModel?>> = MutableLiveData()
     fun getAllCategories() {

@@ -1,5 +1,6 @@
 package net.ferraSolution.food.ui.bottomTabs.home
 
+import androidx.lifecycle.MutableLiveData
 import com.airbnb.epoxy.AsyncEpoxyController
 import net.ferraSolution.food.data.models.BestDealModel
 import net.ferraSolution.food.data.models.PopularCategoriesResponse
@@ -12,6 +13,7 @@ class HomePageController(private val callbacks: AdapterCallbacks) : AsyncEpoxyCo
 
     var popularCategoriesList = immutableListOf<PopularCategoriesResponse>()
     var bestDealList = immutableListOf<BestDealModel>()
+    var sliderPosition = MutableLiveData<Int>()
 
     override fun buildModels() {
 
@@ -22,7 +24,7 @@ class HomePageController(private val callbacks: AdapterCallbacks) : AsyncEpoxyCo
             .callBacks(callbacks)
             .addIf(popularCategoriesList.isNotEmpty(), this)
 
-        SliderCarouselModel_()
+        SliderCarouselModel_(sliderPosition)
             .id("SliderCarouselModel_")
             .imageList(bestDealList)
             .onViewAllPromotionListener { model, _, _, _ ->

@@ -49,11 +49,12 @@ class SplashFragment : BaseSupportFragment(R.layout.fragment_splash) {
     }
 
     private fun navigateToNextDestination() {
-        if (Constants().getUid(requireContext()).isNullOrEmpty()) {
+        navController.navigate(SplashFragmentDirections.actionSplashFragmentToHomeFragment())
+        /*if (Constants().getUid(requireContext()).isNullOrEmpty()) {
             navController.navigate(SplashFragmentDirections.actionSplashFragmentToLoginFragment())
         } else {
             navController.navigate(SplashFragmentDirections.actionSplashFragmentToHomeFragment())
-        }
+        }*/
     }
 
 }

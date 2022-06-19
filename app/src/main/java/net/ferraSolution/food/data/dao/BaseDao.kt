@@ -1,9 +1,6 @@
 package net.ferraSolution.food.data.dao
 
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Update
-import androidx.room.Delete
+import androidx.room.*
 
 /*
  * Copyright (C)   The Android Open Source Project
@@ -21,6 +18,7 @@ import androidx.room.Delete
  * limitations under the License.
  */
 
+@Dao
 interface BaseDao<T> {
 
     /**

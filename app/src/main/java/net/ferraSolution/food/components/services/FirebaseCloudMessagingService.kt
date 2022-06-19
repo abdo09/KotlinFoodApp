@@ -38,7 +38,7 @@ class FirebaseCloudMessagingService : FirebaseMessagingService() {
         val channelId = "default_notification_channel_id"
         val defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
         val notificationBuilder = NotificationCompat.Builder(this, channelId)
-                .setSmallIcon(R.drawable.speero_app_icon)
+                .setSmallIcon(R.drawable.image)
                 .setChannelId(channelId)
                 .setContentTitle("Ferra food")
                 .setAutoCancel(true)

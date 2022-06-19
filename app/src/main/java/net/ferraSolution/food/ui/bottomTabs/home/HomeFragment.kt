@@ -2,23 +2,18 @@ package net.ferraSolution.food.ui.bottomTabs.home
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.fragment_home.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import net.ferraSolution.food.R
 import net.ferraSolution.food.base.BaseSupportFragment
 import net.ferraSolution.food.data.models.BestDealModel
 import net.ferraSolution.food.data.models.CategoryModel
 import net.ferraSolution.food.data.models.PopularCategoriesResponse
 import net.ferraSolution.food.data.models.UserModel
-import net.ferraSolution.food.ui.HomeActivity
 import net.ferraSolution.food.utils.Constants
-import net.ferraSolution.food.utils.replaceAllId
-import org.koin.android.viewmodel.ext.android.viewModel
 import okhttp3.internal.toImmutableList
+import org.koin.android.viewmodel.ext.android.viewModel
 import timber.log.Timber
 
 class HomeFragment : BaseSupportFragment(R.layout.fragment_home), HomePageController.AdapterCallbacks {
@@ -67,25 +62,30 @@ class HomeFragment : BaseSupportFragment(R.layout.fragment_home), HomePageContro
 
     private fun observer() {
 
-        viewModel.popularCategories.observe(viewLifecycleOwner, { popularCategoriesList ->
+        homePageController.sliderPosition.observe(viewLifecycleOwner){
+            Timber.d("SLIDERPOSITION = $it")
+        }
+
+        viewModel.popularCategories.observe(viewLifecycleOwner) { popularCategoriesList ->
             homePageController.popularCategoriesList = popularCategoriesList.toImmutableList()
+            homePageController.sliderPosition = viewModel.sliderPosition
             homePageController.requestModelBuild()
 
-        })
+        }
 
-        viewModel.bestDeals.observe(viewLifecycleOwner, { bestDeal ->
+        viewModel.bestDeals.observe(viewLifecycleOwner) { bestDeal ->
             homePageController.bestDealList = bestDeal.toImmutableList()
             homePageController.requestModelBuild()
             viewModel.getPopularCategories()
-        })
+        }
 
-        viewModel.allCategories.observe(viewLifecycleOwner, {
+        viewModel.allCategories.observe(viewLifecycleOwner) {
             allCategories = it
-        })
+        }
 
-        viewModel.userModel.observe(viewLifecycleOwner, {
-            Constants().setUser(requireContext(), it?: UserModel())
-        })
+        viewModel.userModel.observe(viewLifecycleOwner) {
+            Constants().setUser(requireContext(), it ?: UserModel())
+        }
 
     }
 
