@@ -1,23 +1,16 @@
 package net.ferraSolution.food.ui.bottomTabs.tools
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
-import com.google.android.gms.maps.model.LatLng
 import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.fragment_tools.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import net.ferraSolution.food.R
 import net.ferraSolution.food.base.BaseSupportFragment
-import net.ferraSolution.food.data.models.AddonModel
 import net.ferraSolution.food.data.models.UserModel
 import net.ferraSolution.food.ui.HomeActivity
-import net.ferraSolution.food.ui.user.login.LoginFragmentViewModel
 import net.ferraSolution.food.utils.Constants
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -66,7 +59,7 @@ class ToolsFragment : BaseSupportFragment(R.layout.fragment_tools) {
         override fun handleOnBackPressed() {
             if (activity is HomeActivity) {
                 val homeActivity = activity as HomeActivity
-                navController.navigate(R.id.nav_homeFragment)
+                navController.navigate(R.id.nav_home_fragment)
                 homeActivity.bottomNavigationView.selectedItemId = R.id.navigation_home
             }
         }

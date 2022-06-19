@@ -14,6 +14,7 @@ import net.ferraSolution.food.data.repository.AuthRepository
 import net.ferraSolution.food.data.repository.HomeRepository
 import net.ferraSolution.food.data.repository.MenuRepository
 import net.ferraSolution.food.utils.Constants
+import timber.log.Timber
 
 open class HomeFragmentViewModel(
     private val homeRepository: HomeRepository,
@@ -148,7 +149,8 @@ open class HomeFragmentViewModel(
             ?.addListenerForSingleValueEvent(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     val model = snapshot.getValue(UserModel::class.java)
-                   userModel.postValue(model)
+                    Timber.d(model.toString())
+                    userModel.postValue(model)
                 }
 
                 override fun onCancelled(error: DatabaseError) {

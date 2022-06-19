@@ -112,7 +112,7 @@ class CartFragment : BaseSupportFragment(R.layout.fragment_cart) {
         override fun handleOnBackPressed() {
             if (activity is HomeActivity) {
                 val homeActivity = activity as HomeActivity
-                navController.navigate(R.id.nav_homeFragment)
+                navController.navigate(R.id.nav_home_fragment)
                 homeActivity.bottomNavigationView.selectedItemId = R.id.navigation_home
             }
         }

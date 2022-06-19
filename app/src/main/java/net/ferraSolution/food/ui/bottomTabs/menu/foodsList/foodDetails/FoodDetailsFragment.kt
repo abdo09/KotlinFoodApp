@@ -240,6 +240,7 @@ class FoodDetailsFragment : BaseSupportFragment(R.layout.fragment_food_details) 
         selectedAddon: String,
         extraPrice: Double
     ) {
+        Timber.d("$userModel $foodId $cartItem $foods $selectedSize $selectedAddon $userModel $extraPrice")
         viewModel.launch(Dispatchers.IO) {
             val cartItemFromDB = viewModel.cartItemDAO.getItemWithAllOptionsInCart(
                 userModel?.uid ?: "",
@@ -269,8 +270,7 @@ class FoodDetailsFragment : BaseSupportFragment(R.layout.fragment_food_details) 
                 }
             }
             viewModel.launch(Dispatchers.IO) {
-                val allCart = viewModel.cartItemDAO.getAllCart(userModel?.uid ?: "")
-                Timber.d("$allCart")
+                viewModel.cartItemDAO.getAllCart(userModel?.uid ?: "")
             }
         }
     }
@@ -279,12 +279,12 @@ class FoodDetailsFragment : BaseSupportFragment(R.layout.fragment_food_details) 
         val uid = Constants().getUid(requireContext()) ?: ""
         viewModel.launch {
             viewModel.countItemInCart(uid = uid)
-                .observe(viewLifecycleOwner, {
-                    if (it ?: 0 > 0)
+                .observe(viewLifecycleOwner) {
+                    if ((it ?: 0) > 0)
                         setCartCount(it ?: 0, View.VISIBLE)
                     else
                         setCartCount(0, View.GONE)
-                })
+                }
         }
     }
 

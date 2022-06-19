@@ -59,7 +59,7 @@ class HomeActivity : BaseSupportActivity() {
     fun setBottomNavigationVisibility() {
         // get the reference of the bottomNavigationView and set the visibility.
         when (NavHostFragment.findNavController(foodNavHostFragment).currentDestination?.id) {
-            R.id.nav_homeFragment -> {
+            R.id.nav_home_fragment -> {
                 bottom_app_bar.fadeIn(250, View.VISIBLE)
             }
             R.id.nav_menuFragment -> {
@@ -110,7 +110,7 @@ class HomeActivity : BaseSupportActivity() {
             when (item.itemId) {
 
                 R.id.navigation_home -> {
-                    findNavController(R.id.foodNavHostFragment).navigate(R.id.nav_homeFragment)
+                    findNavController(R.id.foodNavHostFragment).navigate(R.id.nav_home_fragment)
                     return@OnNavigationItemSelectedListener true
                 }
 

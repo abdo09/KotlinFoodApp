@@ -38,7 +38,6 @@ class SplashFragment : BaseSupportFragment(R.layout.fragment_splash) {
                 .setDuration(1150)
                 .setInterpolator(DecelerateInterpolator())
                 .withStartAction {
-
                     view.postDelayed({
                         navigateToNextDestination()
                     }, 3000)
@@ -49,12 +48,11 @@ class SplashFragment : BaseSupportFragment(R.layout.fragment_splash) {
     }
 
     private fun navigateToNextDestination() {
-        navController.navigate(SplashFragmentDirections.actionSplashFragmentToHomeFragment())
-        /*if (Constants().getUid(requireContext()).isNullOrEmpty()) {
+        if (Constants().getUid(requireContext()).isNullOrEmpty()) {
             navController.navigate(SplashFragmentDirections.actionSplashFragmentToLoginFragment())
         } else {
             navController.navigate(SplashFragmentDirections.actionSplashFragmentToHomeFragment())
-        }*/
+        }
     }
 
 }
